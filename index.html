@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/mystyle.css?v=<?php echo time(); ?>">
+    <title>Path Finder</title>
+</head>
+
+<body>
+    <div id="top-bar">
+        <ul id="info-text">
+            <li><img src="./images/info-start.png"/>Start Point</li>
+            <li><img src="./images/info-finsih.png"/>Target Point</li>
+            <li><div id="unvisited-cell"></div>Unvisited Cell</li>
+            <li><div id="visited-cell"></div>Visited Cell</li>
+            <li><div id="shortest-path-cell"></div>Shortest-path Cell</li>
+            <li><div id="wall-cell"></div>Wall Cell</li>
+
+        </ul>
+        <p id="algorithm-response">Please select an algorithm</p>
+        
+    </div>
+    <aside id="side-bar">
+        <h1 id="logo">PATH FINDER</h1>
+        <ul class="menu">
+            <li class="maze-container"><a>Mazes</a>
+                <ul class="sub-menu" id="maze-sub-menu">
+                    <li id="RD">Recursion Division</li>
+                    <li id="HK">H & K</li>
+                    <li id="BT">Backtracking</li>
+                </ul>
+            </li>
+            <li id="algorithm-container"><a>Algorithms</a>
+                <ul class="sub-menu" id="algo-sub-menu">
+                    <li id="BFS">Breadth First Search</li>
+                    <li id="BID">Bidirectional</li>
+                    <li id="GBFS">Greedy Best-First Search</li>
+                    <li id="ASTAR">A* Search</li>
+                </ul>
+            </li>
+
+            <li id="speed-container"><a>Speed</a>
+                <ul class="sub-menu" id="speed-sub-menu">
+                    <li id="speed-fast">Fast</li>
+                    <li id="speed-average">Average</li>
+                    <li id="speed-slow">Slow</li>
+                </ul>
+            </li>
+
+        </ul>
+        <div id="side-bar-buttons-container">
+            <button class="side-bar-buttons" id="play-btn" type="button">START</button>
+            <div id="slider-container">
+                <input id="slider-disabled" type="range" min="0" max="200" value="0">
+            </div>
+            <div id="side-bar-clear-buttons-container">
+                <button class="side-bar-buttons" id="clear-path-btn" type="button">CLEAR PATH</button>
+                <button class="side-bar-buttons" id="clear-board-btn" type="button">CLEAR BOARD</button>
+            </div>
+        </div>
+    </aside>
+    <table id="table">
+        <tbody id="tableContainer">
+        </tbody>
+    </table>
+
+</body>
+<script src="js/main.js" type="module"></script>
+
+</html>
