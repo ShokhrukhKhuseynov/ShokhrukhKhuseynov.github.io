@@ -79,21 +79,21 @@ algoSubmenu.onclick = (e) => {
 //======================================================SPEED===============================================================================
 
 const speedSubmenu = document.getElementById('speed-sub-menu');
-let speed = 15;
+let speed = 0;
 
 speedSubmenu.onclick = (e) => {
     const target = e.target;
     switch (target.id) {
         case "speed-slow":
-            speed = 90;
+            speed = 150;
             break;
 
         case "speed-average":
-            speed = 40;
+            speed = 50;
             break;
 
         default:
-            speed = 15;
+            speed = 0;
             break;
     }
 };
