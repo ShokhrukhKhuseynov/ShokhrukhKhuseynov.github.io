@@ -20,12 +20,8 @@ const board = new Board(row, column, tableContainer);
 board.setup();
 
 let startID = 580;
-let startID2 = 894;
-let startSelected;
-let start2Selected;
 let finishID = 595;
 document.getElementById(startID).className = "start";
-document.getElementById(startID2).className = "start2";
 document.getElementById(finishID).className = "finish";
 
 
@@ -67,87 +63,18 @@ const a = document.getElementById("algorithm-response");
 const algoSubmenu = document.getElementById('algo-sub-menu');
 let algorithmType = null;
 
-// algoSubmenu.onclick = (e) => {
-//     board.resetBoard(sliderType);
-//     const target = e.target;
-//     algorithmType = null;
-//     for (const element of algoSubmenu.children) {
-//         if(element.id === target.id){
-//             a.innerText = element.id + " selected";
-//             algorithmType = element.id;
-//         }
-//     }
-//     if(sliderType === "slider-disabled")sliderType = document.getElementById('slider-disabled').id = "slider";
-// };
-
-
 algoSubmenu.onclick = (e) => {
     board.resetBoard(sliderType);
     const target = e.target;
     algorithmType = null;
-    let bothAlgorithmsSelected;
     for (const element of algoSubmenu.children) {
-        if (element.id === target.id) {
-            a.style.display = "inline";
-            a.innerText = element.innerText + " selected";
+        if(element.id === target.id){
+            a.innerText = element.id + " selected";
             algorithmType = element.id;
-            bothAlgorithmsSelected = trackSelectedElement(element.id);
-            break;
-        }
-        a.innerText = "Please select an algorithm";
-    }
-    if(bothAlgorithmsSelected){
-        for (const element of algoSubmenu.children) {
-            if (element.className !== "active1" && element.className !== "active2"){
-                document.getElementById(element.id).className = "inactive";
-            }
-        }
-    }else if(bothAlgorithmsSelected !== undefined){
-        for (const element of algoSubmenu.children) {
-            if (element.className !== "active1" && element.className !== "active2"){
-                document.getElementById(element.id).className = "";
-            }
         }
     }
-    if (sliderType === "slider-disabled") sliderType = document.getElementById('slider-disabled').id = "slider";
+    if(sliderType === "slider-disabled")sliderType = document.getElementById('slider-disabled').id = "slider";
 };
-
-function trackSelectedElement(id) {
-
-   if(!startSelected){
-    if(document.getElementById(id).className !== "active2"){
-        document.getElementById(id).className = "active1";
-        startSelected = true;
-    }
-   }else{
-    if(document.getElementById(id).className === "active1"){
-        document.getElementById(id).className = "";
-        startSelected = false;
-    }
-   }
-
-   if(!start2Selected && startSelected){
-    if(document.getElementById(id).className !== "active1"){
-        document.getElementById(id).className = "active2";
-        start2Selected = true;
-    }
-   }else{
-    if(document.getElementById(id).className === "active2"){
-        document.getElementById(id).className = "";
-        start2Selected = false;
-    }
-   }
-
-   if(startSelected && start2Selected) return true;
-   
-   return false;
-
-}
-
-
-
-// document.getElementById(id).className = "";
-// startSelected = false;
 
 //======================================================SPEED===============================================================================
 
