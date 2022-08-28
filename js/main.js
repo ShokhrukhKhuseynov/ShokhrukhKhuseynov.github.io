@@ -73,11 +73,13 @@ algoSubmenu.onclick = (e) => {
                 element.className = "";
                 algorithmType = null;
                 a.innerHTML = "Please select an algorithm";
+                sliderType = document.getElementById('slider').id = "slider-disabled";
                 activeElement = false;
               }else{
                 element.className = "active";
                 algorithmType = element.id;
                 a.innerHTML = element.innerHTML + " selected";
+                sliderType = document.getElementById('slider-disabled').id = "slider";
                 activeElement = true;
               }
             }
@@ -91,7 +93,6 @@ algoSubmenu.onclick = (e) => {
             element.className = "";
         }
     }
-    if(sliderType === "slider-disabled")sliderType = document.getElementById('slider-disabled').id = "slider";
 };
 
 
@@ -104,7 +105,7 @@ speedSubmenu.onclick = (e) => {
     const target = e.target;
     switch (target.id) {
         case "speed-slow":
-            speed = 150;
+            speed = 250;
             break;
 
         case "speed-average":

@@ -22,7 +22,7 @@ export function onMouseClick(adjList, grid) {
    
     if (target.tagName === "TD") {
         if (startPointExist && finishPointExist) {
-            if (target.className !== "start" && target.className !== "finish" && target.className !== "start2") {
+            if (target.className !== "start" && target.className !== "start-shortest-path" && target.className !== "finish" && target.className !== "finish-shortest-path") {
                 if (target.className === "unvisited") {
                     document.getElementById(target.id).className = "wall";
                     removeNodeFromAdjList(adjList, parseInt(target.id));

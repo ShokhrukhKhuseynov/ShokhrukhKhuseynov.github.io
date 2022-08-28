@@ -1,8 +1,9 @@
 body {
+    height: 100vh;
     width: 100vw;
     padding: 0%;
     margin: 0%;
-    height: 100vh;
+    position: fixed;
     display: grid;
     margin: 0px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -107,7 +108,7 @@ body {
 /*=============================================================SIDE BAR=========================================================================== */
 
 #side-bar {
-    display: grid;
+    display: flexbox;
     grid-template-columns: 1fr;
     grid-area: sd;
     background-color: white;
@@ -130,6 +131,8 @@ body {
 /* ------------------------------------------------------------LIST------------------------------------------------------------------------- */
 
 .menu {
+    margin-top: 20%;
+    margin-bottom: 20%;
     display: grid;
     grid-template-columns: 1fr;
     list-style-type: none;
@@ -159,9 +162,8 @@ body {
 .menu>li {
     /*Make space between logo, left-side and menu. Make toggle area bigger for sub-menu */
     height: max-content;
-    margin-bottom: 5%;
+    margin-bottom: 15%;
     margin-left: 13%;
-
 }
 
 .menu>li * {
@@ -398,12 +400,6 @@ ul li ul:hover {
     background-position: center;
 }
 
-.start2 {
-    background-image: url("../images/start2.png");
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
 .finish {
     background-image: url("../images/finish.png");
     background-repeat: no-repeat;
@@ -425,57 +421,88 @@ ul li ul:hover {
 .wall {
     background-color: #73777B;
     border: 1px solid #73777B;
+    animation-name: wallNodeAnimation;
+    animation-duration: 0.5s;
+}
+
+@keyframes wallNodeAnimation {
+    from{transform: translate(0px,20%);}
+    to{ transform: translate(0px,0%);}
 }
 
 .unvisited {
     border: 1px solid #CFD2CF;
-
+    /* animation-name: unvisitedNodeAnimation; */
+    /* animation-duration: 0.5s; */
 }
 
+@keyframes unvisitedNodeAnimation {
+
+    0% {
+        transform: scale3d(1, 1, 1);
+        background-color: #73777B;
+        border: 1px solid #73777B;
+    }
+
+    75% {
+        transform: scale3d(0.5, 0.5, 0.5);
+        background-color: #73777B;
+        border: 1px solid #73777B;
+    }
+
+    100% {
+        transform: scale3d(0, 0, 0);
+        background-color: #73777B;
+        border: 1px solid #73777B;
+    }
+
+}
 
 /* -------------------------------------------------------------VISITED 1 ANIMATION -------------------------------------------------------------------------*/
 
 .visited-slider {
-    background-color: #66DE93;
-    border: 1px solid #73777B;
+    background-color: #80ed99;
+    border: 1px solid#8d9195;
 }
 
 
 .visited {
-    background-color: #66DE93;
+    background-color: #80ed99;
     border: 1px solid #8d9195;
-    /* background: linear-gradient( #D61C4E 50%, #14C38E 50%); */
-    animation-name: example;
-    animation-duration: 1s;
+    animation-name: visitedNodeAnimation;
+    animation-duration: 2s;
 
 
 }
 
-@keyframes example {
+@keyframes visitedNodeAnimation {
 
     0% {
-        transform: scale3d(0.3, 0.3, 0.3);
-        background-color: #B20600;
+        transform: scale3d(0.5, 0.5, 0.5);
+        background-color: #FF1700;
         border-radius: 3px;
     }
 
     25% {
-        background-color: rgb(210, 241, 206);
-        /* background: linear-gradient( #D61C4E 50%, #B8F1B0 50%); */
-        transform: scale3d(0.8, 0.8, 0.8);
+        background-color: #22577a;
+        transform: scale3d(0.6, 0.6, 0.6);
         border-radius: 3px;
     }
 
     50% {
-        background-color: #00FFAB;
-        /* background: linear-gradient( #D61C4E 50%, #00FFAB 50%); */
-        transform: scale3d(1.2, 1.2, 1.2);
+        background-color: #38a3a5;
+        transform: scale3d(0.8, 0.8, 0.8);
+        border-radius: 3px;
+    }
+
+    75% {
+        background-color: #57cc99;
+        transform: scale3d(1.1, 1.1, 1.1);
         border-radius: 3px;
     }
 
     100% {
-        background-color: #66DE93;
-        /* background: linear-gradient( #D61C4E 50%, #14C38E 50%); */
+        background-color: #80ed99;
         transform: scale3d(1, 1, 1);
         border-radius: 3px;
     }
@@ -486,13 +513,12 @@ ul li ul:hover {
 
 /* -----------------------------------------------------SHORTEST PATH ANIMATION---------------------------------------------------------------------- */
 .shorthest-path-slider {
-    background-color: #fbfe52;
-    border: 1px solid #8d9195;
+    background-color: #FFFE6A;
+
 }
 
 .shorthest-path {
-    background-color: #F7FD04;
-    border: 1px solid #8d9195;
+    background-color: #FFFE6A;
     animation: shortestPath;
     animation-duration: 2s;
 
