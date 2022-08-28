@@ -27,7 +27,6 @@ body {
     margin: 0px;
     font-family: 'Kanit', sans-serif;
     font-size: 23px;
-    display: none;
 }
 
 #info-text {
@@ -144,21 +143,14 @@ body {
     pointer-events: none;
 }
 
-.active1 {
+.active {
     color: #66DE93 !important;
 }
 
-.active1:hover {
+.active:hover {
     color: #00FFAB !important;
 }
 
-.active2 {
-    color: #FFB200 !important;
-}
-
-.active2:hover {
-    color: #FBDF07 !important;
-}
 
 .menu-disabled {
     color: rgb(175, 175, 175);

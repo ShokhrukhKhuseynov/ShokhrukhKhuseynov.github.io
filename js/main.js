@@ -62,19 +62,38 @@ mazeSubmenu.onclick = (e) => {
 const a = document.getElementById("algorithm-response");
 const algoSubmenu = document.getElementById('algo-sub-menu');
 let algorithmType = null;
-
+let activeElement = false;
 algoSubmenu.onclick = (e) => {
     board.resetBoard(sliderType);
     const target = e.target;
     algorithmType = null;
     for (const element of algoSubmenu.children) {
-        if(element.id === target.id){
-            a.innerText = element.id + " selected";
-            algorithmType = element.id;
+            if(element.id === target.id){
+              if(element.className === "active"){
+                element.className = "";
+                algorithmType = null;
+                a.innerHTML = "Please select an algorithm";
+                activeElement = false;
+              }else{
+                element.className = "active";
+                algorithmType = element.id;
+                a.innerHTML = element.innerHTML + " selected";
+                activeElement = true;
+              }
+            }
+    }
+    for (const element of algoSubmenu.children) {
+        if(activeElement){
+            if(element.className !== "active"){
+                element.className = "inactive";
+            }
+        }else{
+            element.className = "";
         }
     }
     if(sliderType === "slider-disabled")sliderType = document.getElementById('slider-disabled').id = "slider";
 };
+
 
 //======================================================SPEED===============================================================================
 
