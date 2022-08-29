@@ -131,8 +131,8 @@ body {
 /* ------------------------------------------------------------LIST------------------------------------------------------------------------- */
 
 .menu {
-    margin-top: 20%;
-    margin-bottom: 20%;
+    margin-top: 35%;
+    margin-bottom: 10%;
     display: grid;
     grid-template-columns: 1fr;
     list-style-type: none;
@@ -289,6 +289,7 @@ ul li ul:hover {
 }
 
 #side-bar-clear-buttons-container * {
+    margin-top: 10px;
     font-size: 14px;
 }
 
@@ -325,6 +326,7 @@ ul li ul:hover {
     display: grid;
     margin-left: 5%;
     margin-right: 5%;
+    margin-top: 10px;
 }
 
 #slider {
