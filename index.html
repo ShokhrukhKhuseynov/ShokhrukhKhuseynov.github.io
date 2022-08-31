@@ -8,23 +8,23 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/public/css/mystyle.css">
     <title>Path Finder</title>
 </head>
 
 <body>
     <div id="top-bar">
-        <ul id="info-text">
-            <li><img src="public/images/info-start.png"/>Start Point</li>
-            <li><img src="public/images/info-finsih.png"/>Target Point</li>
-            <li><div id="unvisited-cell"></div>Unvisited Cell</li>
-            <li><div id="visited-cell"></div>Visited Cell</li>
-            <li><div id="shortest-path-cell"></div>Shortest-path Cell</li>
-            <li><div id="wall-cell"></div>Wall Cell</li>
-
-        </ul>
+        <div id="info-text-container">
+            <div> <img src="public/images/info-start.png" />Start Point</div>
+            <div><img src="public/images/info-finsih.png" />Target Point</div>
+            <div><div id="unvisited-cell"></div>Unvisited Cell</div>
+            <div><div id="visited-cell"></div>Visited Cell</div>
+            <div><div id="shortest-path-cell"></div>Shortest-path Cell</div>
+            <div><div id="wall-cell"></div>Wall Cell</div>
+        </div>
         <p id="algorithm-response">Please select an algorithm</p>
-        
+
     </div>
     <aside id="side-bar">
         <h1 id="logo">PATH FINDER</h1>
@@ -64,8 +64,8 @@
                 <button class="side-bar-buttons" id="clear-board-btn" type="button">CLEAR BOARD</button>
             </div>
         </div>
-       
-       
+
+
     </aside>
     <table id="table">
         <tbody id="tableContainer">

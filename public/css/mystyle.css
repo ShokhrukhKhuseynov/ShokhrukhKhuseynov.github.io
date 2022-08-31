@@ -2,14 +2,17 @@ body {
     height: 100vh;
     width: 100vw;
     padding: 0%;
-    margin: 0%;
-    position: fixed;
-    display: grid;
     margin: 0px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    /* margin-right: 1%;
+    margin-bottom: 1%; */
+    /* position: fixed; */
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-template-rows: max-content max-content;
     grid-template-areas:
-        "sd hd hd hd hd hd"
-        "sd md md md md md";
+        "sd hd"
+        "sd md";
 }
 
 
@@ -17,42 +20,47 @@ body {
 
 #top-bar {
     grid-area: hd;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    height: min-content;
     border-left: 1px solid #CFD2CF;
+    height: 100%;
 }
 
 #algorithm-response {
     margin: 0px;
     font-family: 'Kanit', sans-serif;
-    font-size: 23px;
+    font-size: 18px;
 }
 
-#info-text {
+#info-text-container {
+    margin-top: 4px;
     width: 100%;
     padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 60px;
 }
 
-#info-text>li {
-    display: inline-block;
+#info-text-container>div {
     font-family: 'Kanit', sans-serif;
-    font-size: 23px;
+    font-size: 18px;
     margin-left: 3.5%;
+    width: fit-content;
 }
 
-#info-text>li>img {
+#info-text-container>div>img {
     float: left;
     margin-right: 5px;
+    width: 15px;
+    height: 20px;
 }
 
 #unvisited-cell {
     margin-right: 5px;
     float: left;
     border: 2px solid #CFD2CF;
-    height: 25px;
-    width: 25px;
+    height: 18px;
+    width: 18px;
 }
 
 #visited-cell {
@@ -60,8 +68,8 @@ body {
     float: left;
     background-color: #66DE93;
     border: 2px solid #8d9195;
-    height: 25px;
-    width: 25px;
+    height: 18px;
+    width: 18px;
 }
 
 #shortest-path-cell {
@@ -69,8 +77,8 @@ body {
     float: left;
     background-color: #fbfe52;
     border: 2px solid #8d9195;
-    height: 25px;
-    width: 25px;
+    height: 18px;
+    width: 18px;
 }
 
 #wall-cell {
@@ -78,8 +86,8 @@ body {
     float: left;
     background-color: #73777B;
     border: 2px solid #73777B;
-    height: 25px;
-    width: 25px;
+    height: 18px;
+    width: 18px;
 }
 
 
@@ -120,9 +128,9 @@ body {
 
 /* -----------------------------------------------------------------LOGO----------------------------------------------------------------------------------------- */
 #logo {
-    font-family: 'Kanit', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 30px;
-    color: rgb(36, 36, 36);
+    color: rgb(95, 95, 95);
     text-align: center;
     margin-top: 23%;
     margin-bottom: 0%;
@@ -326,7 +334,8 @@ ul li ul:hover {
     display: grid;
     margin-left: 5%;
     margin-right: 5%;
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #slider {
