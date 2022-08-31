@@ -21,11 +21,16 @@ body {
     height: 100%;
     display: grid;
     justify-items: center;
+    background-color: white;
+    -moz-box-shadow: 0px 0px 5px #777777;
+-webkit-box-shadow: 0px 0px 5px #777777;
+box-shadow: 0px 0px 5px #777777;
 }
 
 #algorithm-response {
     margin: 0px;
     font-family: 'Kanit', sans-serif;
+    color: rgb(36, 36, 36);
     font-size: 18px;
 }
 
@@ -40,6 +45,7 @@ body {
 }
 
 #info-text-container>div {
+    color: rgb(36, 36, 36);
     font-family: 'Kanit', sans-serif;
     font-size: 18px;
     margin-left: 3.5%;
@@ -82,7 +88,7 @@ body {
 #wall-cell {
     margin-right: 5px;
     float: left;
-    background-color: #73777B;
+    background-color: #3A3845;
     border: 2px solid #73777B;
     height: 18px;
     width: 18px;
@@ -95,17 +101,18 @@ body {
 /* =====================================================================TABLE======================================================================= */
 
 #table {
+    /* margin-top: 5px; */
     border-spacing: 0px;
-    margin-bottom: 2px;
-    margin-right: 2px;
+    margin-bottom: 4px;
+    margin-right: 4px;
     grid-area: md;
     pointer-events: all;
 }
 
 #table-disabled {
     border-spacing: 0px;
-    margin-bottom: 2px;
-    margin-right: 2px;
+    margin-bottom: 4px;
+    margin-right: 4px;
     grid-area: md;
     pointer-events: none;
 }
@@ -432,8 +439,8 @@ ul li ul:hover {
 /* -----------------------------------------------------------------WALL AND UNVISITED ------------------------------------------------------------------ */
 
 .wall {
-    background-color: #73777B;
-    border: 1px solid #73777B;
+    background-color: #3A3845;
+    border: 1px solid #3A3845;
     animation-name: wallNodeAnimation;
     animation-duration: 0.5s;
 }
