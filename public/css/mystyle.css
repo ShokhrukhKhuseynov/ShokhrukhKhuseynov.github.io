@@ -2,14 +2,10 @@ body {
     height: 100vh;
     width: 100vw;
     padding: 0%;
-    margin: 0px;
-    overflow-y: scroll;
-    /* margin-right: 1%;
-    margin-bottom: 1%; */
-    /* position: fixed; */
+    margin: 0%;
     display: grid;
-    grid-template-columns: max-content max-content;
-    grid-template-rows: max-content max-content;
+    grid-template-columns: max-content auto;
+    grid-template-rows: max-content auto;
     grid-template-areas:
         "sd hd"
         "sd md";
@@ -23,6 +19,8 @@ body {
     height: min-content;
     border-left: 1px solid #CFD2CF;
     height: 100%;
+    display: grid;
+    justify-items: center;
 }
 
 #algorithm-response {
@@ -35,17 +33,17 @@ body {
     margin-top: 4px;
     width: 100%;
     padding: 0px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    display: grid;
     height: 60px;
+    grid-template-columns: max-content max-content max-content;
+    column-gap: 15px;
 }
 
 #info-text-container>div {
     font-family: 'Kanit', sans-serif;
     font-size: 18px;
     margin-left: 3.5%;
-    width: fit-content;
+    width: max-content;
 }
 
 #info-text-container>div>img {
@@ -98,12 +96,16 @@ body {
 
 #table {
     border-spacing: 0px;
+    margin-bottom: 2px;
+    margin-right: 2px;
     grid-area: md;
     pointer-events: all;
 }
 
 #table-disabled {
     border-spacing: 0px;
+    margin-bottom: 2px;
+    margin-right: 2px;
     grid-area: md;
     pointer-events: none;
 }
@@ -119,7 +121,7 @@ body {
     grid-template-columns: 1fr;
     grid-area: sd;
     background-color: white;
-    width: 100%;
+    width: 250px;
 }
 
 #side-bar-disabled {
