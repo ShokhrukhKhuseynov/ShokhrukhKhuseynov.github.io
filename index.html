@@ -14,20 +14,22 @@
 </head>
 
 <body>
-    <div id="top-bar">
+    <!-- <div id="top-bar">
         <div id="info-text-container">
             <div> <img src="public/images/info-start.png" />Start Point</div>
             <div><div id="visited-cell"></div>Visited Cell</div>
             <div><div id="unvisited-cell"></div>Unvisited Cell</div>
+            <div>Type: Weighten</div>
             <div><img src="public/images/info-finsih.png" />Target Point</div>
             <div><div id="shortest-path-cell"></div>Shortest-path Cell</div>
             <div><div id="wall-cell"></div>Wall Cell</div>
-           
+            <div>Shortest-path: Guaranted</div>
         </div>
+        <div id="algo-description">Breadth First Search explores equally in all directions. On average takes lots of steps to find target</div>
         <p id="algorithm-response">Please select an algorithm</p>
-    </div>
+    </div> -->
     <aside id="side-bar">
-        <h1 id="logo">PATH FINDER</h1>
+        <h1 id="logo">PATH FINDER SIMULATOR</h1>
         <ul class="menu">
             <li class="maze-container"><a>Mazes</a>
                 <ul class="sub-menu" id="maze-sub-menu">
@@ -63,6 +65,14 @@
                 <button class="side-bar-buttons" id="clear-path-btn" type="button">CLEAR PATH</button>
                 <button class="side-bar-buttons" id="clear-board-btn" type="button">CLEAR BOARD</button>
             </div>
+        </div>
+        <div id="info-text-container">
+            <div> <img src="public/images/info-start.png" />Start Point</div>
+            <div><img src="public/images/info-finsih.png" />Target Point</div>
+            <div><div id="visited-cell"></div>Visited Cell</div>
+            <div><div id="shortest-path-cell"></div>Shortest-path</div>
+            <div><div id="unvisited-cell"></div>Unvisited Cell</div>
+            <div><div id="wall-cell"></div>Wall Cell</div>
         </div>
 
 
