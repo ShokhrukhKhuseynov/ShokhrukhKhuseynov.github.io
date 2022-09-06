@@ -14,8 +14,8 @@ const tableContainer = document.getElementById("tableContainer");
 
 //===========================================================SETUP=================================================================================
 
-const row = 25;
-const column = 51;
+const row = 27;
+const column = 53;
 const board = new Board(row, column, tableContainer);
 board.setup();
 
@@ -68,28 +68,30 @@ algoSubmenu.onclick = (e) => {
     const target = e.target;
     algorithmType = null;
     for (const element of algoSubmenu.children) {
-            if(element.id === target.id){
-              if(element.className === "active"){
+        if (element.id === target.id) {
+            if (element.className === "active") {
                 element.className = "";
                 algorithmType = null;
+                a.id = "algorithm-response-none";
                 a.innerHTML = "Please select an algorithm";
                 sliderType = document.getElementById('slider').id = "slider-disabled";
                 activeElement = false;
-              }else{
+            } else {
                 element.className = "active";
                 algorithmType = element.id;
-                a.innerHTML = element.innerHTML + " selected";
+                a.id = "algorithm-response";
+                a.innerHTML = element.innerHTML;
                 sliderType = document.getElementById('slider-disabled').id = "slider";
                 activeElement = true;
-              }
             }
+        }
     }
     for (const element of algoSubmenu.children) {
-        if(activeElement){
-            if(element.className !== "active"){
+        if (activeElement) {
+            if (element.className !== "active") {
                 element.className = "inactive";
             }
-        }else{
+        } else {
             element.className = "";
         }
     }
@@ -123,10 +125,8 @@ speedSubmenu.onclick = (e) => {
 const playBtn = document.getElementById("play-btn");
 playBtn.onclick = () => {
     board.resetBoard(sliderType);
-    a.style.display = "inline";
     if (sliderType !== "slider-disabled") sliderType = document.getElementById('slider').id = "slider-disabled";
     switch (algorithmType) {
-
         case "BFS":
             disbaleMenu(false, shortestPathBFS(board.adjacencyList, startID, finishID, false, 0, false, sliderType, speed));
             break;
@@ -141,6 +141,11 @@ playBtn.onclick = () => {
 
         case "ASTAR":
             disbaleMenu(false, aStartSearch(board.adjacencyList, board.grid, startID, finishID, false, 0, false, sliderType, speed));
+            break;
+
+        default:
+            a.id = "algorithm-response-none";
+            a.innerText = "Please select an algorithm";
             break;
     }
 

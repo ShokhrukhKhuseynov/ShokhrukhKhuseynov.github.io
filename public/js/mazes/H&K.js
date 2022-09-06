@@ -6,11 +6,11 @@ export class HandK {
     }
     huntAndKillMaze(width, height) {
         this.unvisitedToAnimate = [];
-        // Make them odd
+
         width -= width % 2; width++;
         height -= height % 2; height++;
 
-        // Fill maze with 1's (walls)
+
         var maze = [];
         for (var i = 0; i < height; i++) {
             maze.push([]);
@@ -19,7 +19,6 @@ export class HandK {
             }
         }
 
-        // Opening at top - start of maze
         maze[0][1] = 0;
         maze[1][1] = 0;
 
@@ -53,7 +52,7 @@ export class HandK {
 
         }
 
-        maze[height - 2][width - 1] = 0; // finish point
+        maze[height - 2][width - 1] = 0;
 
         return maze;
 
@@ -64,11 +63,6 @@ export class HandK {
         for (var i = 0; i < 4; i++) {
             var n = [ic, jc];
 
-            // Iterates through four neighbors
-            // [i][j - 2] 
-            // [i][j + 2]
-            // [i - 2][j]
-            // [i + 2][j]
             n[i % 2] += ((Math.floor(i / 2) * 2) || -2);
             if (n[0] < maze.length &&
                 n[1] < maze[0].length &&
@@ -88,11 +82,6 @@ export class HandK {
         for (var i = 0; i < 4; i++) {
             var n = [ic, jc];
 
-            // Iterates through four neighbors
-            // [i][j - 2] 
-            // [i][j + 2]
-            // [i - 2][j]
-            // [i + 2][j]
             n[i % 2] += ((Math.floor(i / 2) * 2) || -2);
             if (n[0] < maze.length &&
                 n[1] < maze[0].length &&

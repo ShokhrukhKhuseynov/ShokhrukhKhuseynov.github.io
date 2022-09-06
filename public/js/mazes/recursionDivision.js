@@ -8,7 +8,7 @@ export class RecursionDivision {
     recursiveDivisionMaze(width, height) {
 
         this.wallsToAnimate = [];
-        // Make dimensions odd
+
         width -= width % 2; width++;
         height -= height % 2; height++;
 
@@ -30,9 +30,6 @@ export class RecursionDivision {
         }
 
         this.divide(maze, [1, height - 2], [1, width - 2], this.horv(1, 1));
-
-        // maze[0][1] = 0;      enter
-        // maze[height - 1][width - 2] = 0; exit
 
         return maze
 
@@ -128,7 +125,6 @@ export class Bin {
 
     recursiveDivisionMaze(width, height) {
 
-        // Make dimensions odd
         width -= width % 2; width++;
         height -= height % 2; height++;
 
