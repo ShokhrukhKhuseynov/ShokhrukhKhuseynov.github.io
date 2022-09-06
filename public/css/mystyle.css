@@ -322,13 +322,26 @@ ul li ul:hover {
 
 /*-----------------------------------------------------------------------Info----------------------------------------------------------------  */
 
-#algorithm-response {
+#algorithm-response-selected {
     margin: 0px;
     font-family: 'Montserrat', sans-serif;
     color: #0F3460;
     font-size: 12px;
     margin-bottom: 5px;
     justify-self: center;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 8px;
+}
+
+#algorithm-response-selected::before,
+#algorithm-response-selected::after {
+    content: "";
+    background-color: #0F3460;
+    margin-top: 6.5px;
+    height: 1px;
+    width: 15px;
+    align-self:baseline;
 }
 
 #algorithm-response-none {
@@ -404,7 +417,7 @@ ul li ul:hover {
 }
 
 
-#algo-description{
+#algo-description {
     width: 350px;
     margin-left: 40%;
 }
@@ -458,10 +471,15 @@ ul li ul:hover {
 }
 
 @keyframes wallNodeAnimation {
-    from{transform: translate(0px,30%);
-    opacity: 0.5;}
-    to{ transform: translate(0px,0%);
-    opacity: 1;}
+    from {
+        transform: translate(0px, 30%);
+        opacity: 0.5;
+    }
+
+    to {
+        transform: translate(0px, 0%);
+        opacity: 1;
+    }
 }
 
 .unvisited {

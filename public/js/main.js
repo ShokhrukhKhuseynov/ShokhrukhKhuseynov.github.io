@@ -79,7 +79,7 @@ algoSubmenu.onclick = (e) => {
             } else {
                 element.className = "active";
                 algorithmType = element.id;
-                a.id = "algorithm-response";
+                a.id = "algorithm-response-selected";
                 a.innerHTML = element.innerHTML;
                 sliderType = document.getElementById('slider-disabled').id = "slider";
                 activeElement = true;
