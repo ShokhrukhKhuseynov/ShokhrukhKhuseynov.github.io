@@ -194,7 +194,7 @@ ul li ul:hover {
 }
 
 .menu>li>ul>li:not(:hover) {
-    color:rgb(175, 175, 175);
+    color:rgb(64, 64, 64);
 }
 
 
