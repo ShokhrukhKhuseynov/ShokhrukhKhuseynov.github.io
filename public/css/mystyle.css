@@ -48,7 +48,7 @@ body {
 #side-bar {
     grid-template-columns: 1fr;
     grid-area: sd;
-    background-color: white;
+    background-color: #333333;
     width: 250px;
     display: grid;
     height: 99vh;
@@ -65,7 +65,10 @@ body {
     font-size: 30px;
     text-align: center;
     margin-top: 20%;
-    color: #343a40;
+    /* color: #EFEFEF; */
+    background: linear-gradient(to right, #EB1D36 0%, #248AFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* ------------------------------------------------------------LIST------------------------------------------------------------------------- */
@@ -77,7 +80,7 @@ body {
     grid-template-columns: 1fr;
     list-style-type: none;
     font-family: 'Montserrat', sans-serif;
-    color: rgb(36, 36, 36);
+    color: rgb(175, 175, 175);
     padding-left: 0%;
 }
 
@@ -137,7 +140,7 @@ a {
 .menu>*::after {
     content: "\003e";
     font-family: 'Montserrat', sans-serif;
-    color: rgb(36, 36, 36);
+    color: rgb(175, 175, 175);
     visibility: hidden;
     opacity: 0;
     display: none;
@@ -191,7 +194,7 @@ ul li ul:hover {
 }
 
 .menu>li>ul>li:not(:hover) {
-    color: rgb(36, 36, 36);
+    color:rgb(175, 175, 175);
 }
 
 
@@ -207,20 +210,25 @@ ul li ul:hover {
     font-size: 20px;
     padding: 2px;
     height: fit-content;
-    color: rgb(36, 36, 36);
+    color:rgb(175, 175, 175);
     background-color: unset;
     border-style: none;
-    border: 1px solid rgb(36, 36, 36);
+    border: 1px solid rgb(175, 175, 175);
     margin-right: 5%;
     margin-left: 5%;
     transition: all 0.3s;
     border-radius: 4px;
 }
 
+#play-btn {
+    color: #41da53;
+    border: 1px solid #41da53;
+
+}
 #play-btn:hover {
     cursor: pointer;
-    color: #3CCF4E;
-    border: 1px solid #3CCF4E;
+    color: #33b442;
+    border: 1px solid #33b442;
 
 }
 
@@ -234,10 +242,14 @@ ul li ul:hover {
     font-size: 14px;
 }
 
-#clear-path-btn:hover {
-    cursor: pointer;
+#clear-path-btn {
     color: #FBCB0A;
     border: 1px solid #FBCB0A;
+}
+#clear-path-btn:hover {
+    cursor: pointer;
+    color: #d8af08;
+    border: 1px solid #d8af08;
 }
 
 #clear-path-btn-disabled {
@@ -245,10 +257,14 @@ ul li ul:hover {
     border: 1px solid #EB1D36;
 }
 
-#clear-board-btn:hover {
-    cursor: pointer;
+#clear-board-btn {
     color: #FBCB0A;
     border: 1px solid #FBCB0A;
+}
+#clear-board-btn:hover {
+    cursor: pointer;
+    color: #d8af08;
+    border: 1px solid #d8af08;
 }
 
 #clear-board-btn-disabled {
@@ -274,7 +290,7 @@ ul li ul:hover {
     overflow: hidden;
     height: 20px;
     -webkit-appearance: none;
-    background-color: #ddd;
+    background-color: rgb(109, 109, 109);
     border-radius: 20px;
     max-width: 100%;
     outline: 0;
@@ -286,7 +302,7 @@ ul li ul:hover {
     -webkit-appearance: none;
     height: 20px;
     cursor: ew-resize;
-    background: #fff;
+    background: rgb(109, 109, 109);
     box-shadow: -340px 0 0 330px #1597ff, inset 0 0 0 20px #1597ff;
     border-radius: 20px;
     transition: box-shadow 0.2s ease-in-out;
@@ -298,7 +314,7 @@ ul li ul:hover {
     overflow: hidden;
     height: 20px;
     -webkit-appearance: none;
-    background-color: #ddd;
+    background-color: rgb(109, 109, 109);
     border-radius: 20px;
     max-width: 100%;
     outline: 0;
@@ -311,7 +327,7 @@ ul li ul:hover {
     -webkit-appearance: none;
     height: 20px;
     cursor: ew-resize;
-    background: #fff;
+    background: rgb(109, 109, 109);
     box-shadow: -340px 0 0 330px #EB1D36, inset 0 0 0 20px #EB1D36;
     border-radius: 20px;
     transition: box-shadow 0.2s ease-in-out;
@@ -325,7 +341,7 @@ ul li ul:hover {
 #algorithm-response-selected {
     margin: 0px;
     font-family: 'Montserrat', sans-serif;
-    color: #0F3460;
+    color: rgb(175, 175, 175);
     font-size: 12px;
     margin-bottom: 5px;
     justify-self: center;
@@ -337,11 +353,11 @@ ul li ul:hover {
 #algorithm-response-selected::before,
 #algorithm-response-selected::after {
     content: "";
-    background-color: #0F3460;
+    background-color: rgb(175, 175, 175);
     margin-top: 6.5px;
     height: 1px;
     width: 15px;
-    align-self:baseline;
+    align-self: baseline;
 }
 
 #algorithm-response-none {
@@ -367,7 +383,7 @@ ul li ul:hover {
 
 
 #info-text-container>div {
-    color: rgb(36, 36, 36);
+    color: rgb(175, 175, 175);
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
     margin-left: 3.5%;
@@ -384,6 +400,7 @@ ul li ul:hover {
 #unvisited-cell {
     margin-right: 5px;
     float: left;
+    background-color: white;
     border: 2px solid #CFD2CF;
     height: 15px;
     width: 15px;
@@ -410,7 +427,7 @@ ul li ul:hover {
 #wall-cell {
     margin-right: 5px;
     float: left;
-    background-color: #3A3845;
+    background-color: #033751;
     /* border: 2px solid #73777B; */
     height: 18px;
     width: 18px;
@@ -464,8 +481,8 @@ ul li ul:hover {
 /* -----------------------------------------------------------------WALL AND UNVISITED ------------------------------------------------------------------ */
 
 .wall {
-    background-color: #3A3845;
-    border: 1px solid #3A3845;
+    background-color: #033751;
+    border: 1px solid #033751;
     animation-name: wallNodeAnimation;
     animation-duration: 0.5s;
 }

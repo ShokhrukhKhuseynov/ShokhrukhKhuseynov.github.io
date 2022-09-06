@@ -19,8 +19,8 @@ const column = 53;
 const board = new Board(row, column, tableContainer);
 board.setup();
 
-let startID = 580;
-let finishID = 595;
+let startID = 600;
+let finishID = 620;
 document.getElementById(startID).className = "start";
 document.getElementById(finishID).className = "finish";
 
@@ -189,7 +189,7 @@ async function disbaleMenu(mazeGenerator, func) {
     const menu = document.getElementsByClassName('menu')[0];
 
     sideBar.style.pointerEvents = "none";
-    menu.style.color = "rgb(190, 190, 190)";
+    menu.style.color = "rgb(175, 175, 175)";
     document.getElementById('play-btn').id = "play-btn-disabled";
     document.getElementById('clear-path-btn').id = "clear-path-btn-disabled";
     document.getElementById('clear-board-btn').id = "clear-board-btn-disabled";
@@ -198,7 +198,7 @@ async function disbaleMenu(mazeGenerator, func) {
     await func;
 
     sideBar.style.pointerEvents = "all";
-    menu.style.color = "rgb(36, 36, 36)";
+    menu.style.color = "rgb(175, 175, 175)";
     document.getElementById('play-btn-disabled').id = "play-btn";
     document.getElementById('clear-path-btn-disabled').id = "clear-path-btn";
     document.getElementById('clear-board-btn-disabled').id = "clear-board-btn";
