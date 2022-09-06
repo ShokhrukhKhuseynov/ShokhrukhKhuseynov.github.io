@@ -221,8 +221,8 @@ ul li ul:hover {
 }
 
 #play-btn {
-    color: #41da53;
-    border: 1px solid #41da53;
+    color: #52b788;
+    border: 1px solid #52b788;
 
 }
 #play-btn:hover {
@@ -243,8 +243,8 @@ ul li ul:hover {
 }
 
 #clear-path-btn {
-    color: #FBCB0A;
-    border: 1px solid #FBCB0A;
+    color: #52b788;
+    border: 1px solid #52b788;
 }
 #clear-path-btn:hover {
     cursor: pointer;
@@ -258,8 +258,8 @@ ul li ul:hover {
 }
 
 #clear-board-btn {
-    color: #FBCB0A;
-    border: 1px solid #FBCB0A;
+    color: #52b788;
+    border: 1px solid #52b788;
 }
 #clear-board-btn:hover {
     cursor: pointer;
@@ -290,7 +290,7 @@ ul li ul:hover {
     overflow: hidden;
     height: 20px;
     -webkit-appearance: none;
-    background-color: rgb(109, 109, 109);
+    background-color: rgb(74, 74, 74);
     border-radius: 20px;
     max-width: 100%;
     outline: 0;
@@ -302,7 +302,7 @@ ul li ul:hover {
     -webkit-appearance: none;
     height: 20px;
     cursor: ew-resize;
-    background: rgb(109, 109, 109);
+    background: rgb(74, 74, 74);
     box-shadow: -340px 0 0 330px #1597ff, inset 0 0 0 20px #1597ff;
     border-radius: 20px;
     transition: box-shadow 0.2s ease-in-out;
@@ -314,7 +314,7 @@ ul li ul:hover {
     overflow: hidden;
     height: 20px;
     -webkit-appearance: none;
-    background-color: rgb(109, 109, 109);
+    background-color: rgb(74, 74, 74);
     border-radius: 20px;
     max-width: 100%;
     outline: 0;
@@ -327,7 +327,7 @@ ul li ul:hover {
     -webkit-appearance: none;
     height: 20px;
     cursor: ew-resize;
-    background: rgb(109, 109, 109);
+    background: rgb(74, 74, 74);
     box-shadow: -340px 0 0 330px #EB1D36, inset 0 0 0 20px #EB1D36;
     border-radius: 20px;
     transition: box-shadow 0.2s ease-in-out;
