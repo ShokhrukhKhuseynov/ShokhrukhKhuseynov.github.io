@@ -9,6 +9,7 @@ import { greedyBestFirstSearch } from './algorithms/greedyBestFirst.js';
 import { aStartSearch } from './algorithms/AStar.js';
 import { BacktrackingMaze } from './mazes/backtracking.js';
 const tableContainer = document.getElementById("tableContainer");
+function $(x) { return document.getElementById(x); }
 //====================================================================zero = 0 is equal to undefined!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -68,32 +69,15 @@ algoSubmenu.onclick = (e) => {
     const target = e.target;
     algorithmType = null;
     for (const element of algoSubmenu.children) {
-        if (element.id === target.id) {
-            if (element.className === "active") {
-                element.className = "";
-                algorithmType = null;
-                a.id = "algorithm-response-none";
-                a.innerHTML = "Please select an algorithm";
-                sliderType = document.getElementById('slider').id = "slider-disabled";
-                activeElement = false;
-            } else {
-                element.className = "active";
-                algorithmType = element.id;
-                a.id = "algorithm-response-selected";
-                a.innerHTML = element.innerHTML;
-                sliderType = document.getElementById('slider-disabled').id = "slider";
-                activeElement = true;
-            }
-        }
+        element.className = "";
     }
-    for (const element of algoSubmenu.children) {
-        if (activeElement) {
-            if (element.className !== "active") {
-                element.className = "inactive";
-            }
-        } else {
-            element.className = "";
-        }
+    if ($(target.id).tagName === "LI") {
+        $(target.id).className = "active";
+        algorithmType = $(target.id).id;
+        a.id = "algorithm-response-selected";
+        a.innerHTML = $(target.id).innerHTML;
+        sliderType = document.getElementById('slider-disabled').id = "slider";
+        activeElement = true;
     }
 };
 
