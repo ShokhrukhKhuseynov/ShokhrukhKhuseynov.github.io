@@ -15,7 +15,7 @@ function $(x) { return document.getElementById(x); }
 
 //===========================================================SETUP=================================================================================
 
-const row = 27;
+const row = 29;
 const column = 53;
 const board = new Board(row, column, tableContainer);
 board.setup();
@@ -70,6 +70,9 @@ algoSubmenu.onclick = (e) => {
     algorithmType = null;
     for (const element of algoSubmenu.children) {
         element.className = "";
+        a.id = "algorithm-response";
+        a.innerHTML = "";
+        if (sliderType !== "slider-disabled") sliderType = document.getElementById('slider').id = "slider-disabled";
     }
     if ($(target.id).tagName === "LI") {
         $(target.id).className = "active";
@@ -173,7 +176,7 @@ async function disbaleMenu(mazeGenerator, func) {
     const menu = document.getElementsByClassName('menu')[0];
 
     sideBar.style.pointerEvents = "none";
-    menu.style.color = "rgb(175, 175, 175)";
+    menu.style.color = "#666666";
     document.getElementById('play-btn').id = "play-btn-disabled";
     document.getElementById('clear-path-btn').id = "clear-path-btn-disabled";
     document.getElementById('clear-board-btn').id = "clear-board-btn-disabled";
@@ -182,7 +185,7 @@ async function disbaleMenu(mazeGenerator, func) {
     await func;
 
     sideBar.style.pointerEvents = "all";
-    menu.style.color = "rgb(175, 175, 175)";
+    menu.style.color = "#666666";
     document.getElementById('play-btn-disabled').id = "play-btn";
     document.getElementById('clear-path-btn-disabled').id = "clear-path-btn";
     document.getElementById('clear-board-btn-disabled').id = "clear-board-btn";

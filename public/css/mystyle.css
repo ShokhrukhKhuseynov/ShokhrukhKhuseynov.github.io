@@ -1,8 +1,7 @@
 body {
     height: 100vh;
     width: 100vw;
-    padding: 0%;
-    margin: 0%;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: max-content max-content;
     grid-template-rows: max-content max-content;
@@ -20,23 +19,23 @@ body {
 /* =====================================================================TABLE======================================================================= */
 
 #table {
-    /* margin-top: 5px; */
+    pointer-events: all;
     border-spacing: 0px;
     margin-bottom: 4px;
     margin-right: 4px;
     grid-area: md;
-    pointer-events: all;
-    height: 99vh;
-    width: 83vw;
+    height: 100%;
+    width: 100%;
 }
 
 #table-disabled {
+    pointer-events: none;
     border-spacing: 0px;
     margin-bottom: 4px;
     margin-right: 4px;
     grid-area: md;
-    pointer-events: none;
-    height: 99vh;
+    height: 100%;
+    width: 100%;
 }
 
 #tableContainer>tr>td {
@@ -52,12 +51,17 @@ body {
     background-color: #333333;
     width: 250PX;
     display: grid;
-    /* height: 99vh; */
-    height: 99.45%;
+    height: 100%;
 }
 
 #side-bar-disabled {
     pointer-events: none;
+    grid-template-columns: 1fr;
+    grid-area: sd;
+    background-color: #333333;
+    width: 250PX;
+    display: grid;
+    height: 100%;
 }
 
 
@@ -81,12 +85,12 @@ body {
     grid-template-columns: 1fr;
     list-style-type: none;
     font-family: 'Montserrat', sans-serif;
-    color: rgb(175, 175, 175);
+    color: #666666;
     padding-left: 0%;
 }
 
 .inactive {
-    color: rgb(175, 175, 175) !important;
+    color: #666666 !important;
     pointer-events: none;
 }
 
@@ -100,7 +104,7 @@ body {
 
 
 .menu-disabled {
-    color: rgb(175, 175, 175);
+    color: #666666;
 }
 
 .menu>li {
@@ -119,7 +123,7 @@ body {
     padding-top: 0.5%;
     padding-bottom: 0.5%;
     margin-top: -0.5%;
-    border-radius: 4px;
+    /* border-radius: 4px; */
 }
 
 li:hover {
@@ -141,7 +145,7 @@ a {
 .menu>*::after {
     content: "\003e";
     font-family: 'Montserrat', sans-serif;
-    color: rgb(175, 175, 175);
+    color: #666666;
     visibility: hidden;
     opacity: 0;
     display: none;
@@ -158,7 +162,7 @@ a {
     display: inline;
     transform: translateX(12px);
     transition: all 0.5s;
-    color: #248AFF;
+    color: white;
 }
 
 ul li ul {
@@ -168,7 +172,7 @@ ul li ul {
     position: absolute;
     left: 250px;
     padding-left: 0%;
-    background-color: white;
+    background-color: #333333;
     transition: all 0.5s;
     transform: translateX(10px);
     /* border: 1px solid rgb(36, 36, 36); */
@@ -187,15 +191,15 @@ ul li ul:hover {
 
 .menu>li:hover,
 .maze-container a:hover {
-    color: #248AFF;
+    color: white;
 }
 
 .menu>li>ul>li:hover {
-    color: #248AFF;
+    color: white;
 }
 
 .menu>li>ul>li:not(:hover) {
-    color:rgb(64, 64, 64);
+    color:#666666;
 }
 
 
@@ -211,27 +215,25 @@ ul li ul:hover {
     font-size: 20px;
     padding: 2px;
     height: fit-content;
-    color:rgb(175, 175, 175);
+    color:#666666;
     background-color: unset;
     border-style: none;
-    border: 1px solid rgb(175, 175, 175);
-    margin-right: 5%;
-    margin-left: 5%;
     transition: all 0.3s;
-    border-radius: 4px;
 }
 
 #play-btn {
-    color: rgb(175, 175, 175);
-    /* color: #52b788; */
-    border: 1px solid rgb(175, 175, 175);
-
+    color: #666666;
+    background-color: #272727;
 }
 #play-btn:hover {
     cursor: pointer;
-    color: #33b442;
-    border: 1px solid #33b442;
-
+    color: white;
+    background-color: #66DE93;
+}
+#play-btn-disabled {
+    background-color: #EB1D36;
+    color: white;
+    border: 1px solid #EB1D36;
 }
 
 #side-bar-clear-buttons-container {
@@ -246,39 +248,36 @@ ul li ul:hover {
 }
 
 #clear-path-btn {
-    color: rgb(175, 175, 175);
-    border: 1px solid rgb(175, 175, 175);
+    color: #666666;
+    background-color: #272727;
 }
 #clear-path-btn:hover {
     cursor: pointer;
-    color: #d8af08;
-    border: 1px solid #d8af08;
+    color: white;
+    background-color: #ffd400;
 }
 
 #clear-path-btn-disabled {
-    color: #EB1D36;
-    border: 1px solid #EB1D36;
+    background-color: #EB1D36;
+    color: white;
 }
 
 #clear-board-btn {
-    color: rgb(175, 175, 175);
-    border: 1px solid rgb(175, 175, 175);
+    color: #666666;
+    background-color: #272727;
 }
 #clear-board-btn:hover {
     cursor: pointer;
-    color: #d8af08;
-    border: 1px solid #d8af08;
+    color: white;
+    background-color: #ffd400;
 }
 
 #clear-board-btn-disabled {
-    color: #EB1D36;
-    border: 1px solid #EB1D36;
+    background-color: #EB1D36;
+    color: white;
 }
 
-#play-btn-disabled {
-    color: #EB1D36;
-    border: 1px solid #EB1D36;
-}
+
 
 /*==========================================================SLIDER================================================================================*/
 
@@ -348,7 +347,7 @@ ul li ul:hover {
 #algorithm-response-selected {
     margin: 0px;
     font-family: 'Montserrat', sans-serif;
-    color: rgb(175, 175, 175);
+    color: #66DE93;
     font-size: 12px;
     justify-self: center;
     display: grid;
@@ -359,7 +358,7 @@ ul li ul:hover {
 #algorithm-response-selected::before,
 #algorithm-response-selected::after {
     content: "";
-    background-color: rgb(175, 175, 175);
+    background-color: #66DE93;
     margin-top: 6.5px;
     height: 1px;
     width: 15px;
@@ -384,7 +383,7 @@ ul li ul:hover {
 #separator rect{
     width: 20px;
     height: 3px;
-    fill:rgb(90, 90, 90);
+    fill:#666666;
 }
 
 #info-text-container {
@@ -402,7 +401,7 @@ ul li ul:hover {
 
 
 #info-text-container>div {
-    color: rgb(175, 175, 175);
+    color: #868686;
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
     margin-left: 3.5%;
@@ -416,7 +415,7 @@ ul li ul:hover {
     height: 20px;
 }
 
-#unvisited-cell {
+#unvisited-cell{
     margin-right: 5px;
     float: left;
     background-color: white;
@@ -425,20 +424,18 @@ ul li ul:hover {
     width: 17px;
 }
 
-#visited-cell {
+#visited-cell{
     margin-right: 5px;
     float: left;
     background-color: #66DE93;
-    /* border: 1px solid #8d9195; */
     height: 18px;
     width: 18px;
 }
 
-#shortest-path-cell {
+#shortest-path-cell{
     margin-right: 5px;
     float: left;
     background-color: #fbfe52;
-    /* border: 1px solid #8d9195; */
     height: 18px;
     width: 18px;
 }
@@ -451,14 +448,6 @@ ul li ul:hover {
     height: 17px;
     width: 17px;
 }
-
-
-#algo-description {
-    width: 350px;
-    margin-left: 40%;
-}
-
-
 
 /*=================================================================================================================================================*/
 
