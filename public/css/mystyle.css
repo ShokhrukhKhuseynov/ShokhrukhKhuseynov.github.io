@@ -27,6 +27,7 @@ body {
     grid-area: md;
     pointer-events: all;
     height: 99vh;
+    width: 83vw;
 }
 
 #table-disabled {
@@ -49,9 +50,10 @@ body {
     grid-template-columns: 1fr;
     grid-area: sd;
     background-color: #333333;
-    width: 250px;
+    width: 250PX;
     display: grid;
-    height: 99vh;
+    /* height: 99vh; */
+    height: 99.45%;
 }
 
 #side-bar-disabled {
@@ -75,7 +77,6 @@ body {
 
 .menu {
     margin-top: 25%;
-    margin-bottom: 10%;
     display: grid;
     grid-template-columns: 1fr;
     list-style-type: none;
@@ -221,8 +222,9 @@ ul li ul:hover {
 }
 
 #play-btn {
-    color: #52b788;
-    border: 1px solid #52b788;
+    color: rgb(175, 175, 175);
+    /* color: #52b788; */
+    border: 1px solid rgb(175, 175, 175);
 
 }
 #play-btn:hover {
@@ -235,6 +237,7 @@ ul li ul:hover {
 #side-bar-clear-buttons-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-bottom: 10px;
 }
 
 #side-bar-clear-buttons-container * {
@@ -243,8 +246,8 @@ ul li ul:hover {
 }
 
 #clear-path-btn {
-    color: #52b788;
-    border: 1px solid #52b788;
+    color: rgb(175, 175, 175);
+    border: 1px solid rgb(175, 175, 175);
 }
 #clear-path-btn:hover {
     cursor: pointer;
@@ -258,8 +261,8 @@ ul li ul:hover {
 }
 
 #clear-board-btn {
-    color: #52b788;
-    border: 1px solid #52b788;
+    color: rgb(175, 175, 175);
+    border: 1px solid rgb(175, 175, 175);
 }
 #clear-board-btn:hover {
     cursor: pointer;
@@ -337,13 +340,16 @@ ul li ul:hover {
 
 
 /*-----------------------------------------------------------------------Info----------------------------------------------------------------  */
+#algorithm-response{
+    margin: 0px;
+}
+
 
 #algorithm-response-selected {
     margin: 0px;
     font-family: 'Montserrat', sans-serif;
     color: rgb(175, 175, 175);
     font-size: 12px;
-    margin-bottom: 5px;
     justify-self: center;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -365,21 +371,34 @@ ul li ul:hover {
     font-family: 'Montserrat', sans-serif;
     color: #EB1D36;
     font-size: 12px;
-    margin-bottom: 5px;
     justify-self: center;
 }
 
+#separator{
+    width: 20px;
+    height: 3px;
+    margin-top: 15px;
+    justify-self: center;
+}
+
+#separator rect{
+    width: 20px;
+    height: 3px;
+    fill:rgb(90, 90, 90);
+}
+
 #info-text-container {
-    margin-left: 3%;
-    margin-top: 20px;
+    justify-self: center;
+    margin: 0px;
+    margin-bottom: 60px;
     padding: 0px;
     display: grid;
     height: 60px;
     grid-template-columns: max-content max-content;
     column-gap: 15px;
     row-gap: 10px;
-    margin-bottom: 50px;
 }
+
 
 
 #info-text-container>div {
@@ -401,16 +420,16 @@ ul li ul:hover {
     margin-right: 5px;
     float: left;
     background-color: white;
-    border: 2px solid #CFD2CF;
-    height: 15px;
-    width: 15px;
+    border: 1px solid #CFD2CF;
+    height: 17px;
+    width: 17px;
 }
 
 #visited-cell {
     margin-right: 5px;
     float: left;
     background-color: #66DE93;
-    /* border: 2px solid #8d9195; */
+    /* border: 1px solid #8d9195; */
     height: 18px;
     width: 18px;
 }
@@ -419,7 +438,7 @@ ul li ul:hover {
     margin-right: 5px;
     float: left;
     background-color: #fbfe52;
-    /* border: 2px solid #8d9195; */
+    /* border: 1px solid #8d9195; */
     height: 18px;
     width: 18px;
 }
@@ -427,10 +446,10 @@ ul li ul:hover {
 #wall-cell {
     margin-right: 5px;
     float: left;
-    background-color: #033751;
-    /* border: 2px solid #73777B; */
-    height: 18px;
-    width: 18px;
+    background-color: #003049;
+    border: 1px solid #9b9ea1;
+    height: 17px;
+    width: 17px;
 }
 
 
@@ -481,8 +500,8 @@ ul li ul:hover {
 /* -----------------------------------------------------------------WALL AND UNVISITED ------------------------------------------------------------------ */
 
 .wall {
-    background-color: #033751;
-    border: 1px solid #033751;
+    background-color: #003049;
+    border: 1px solid #003049;
     animation-name: wallNodeAnimation;
     animation-duration: 0.5s;
 }
