@@ -8,6 +8,7 @@ import { bidirectionalSearch } from './algorithms/bidirectional.js';
 import { greedyBestFirstSearch } from './algorithms/greedyBestFirst.js';
 import { aStartSearch } from './algorithms/AStar.js';
 import { BacktrackingMaze } from './mazes/backtracking.js';
+import { randomBasicMaze } from './mazes/basicMaze.js';
 const tableContainer = document.getElementById("tableContainer");
 function $(x) { return document.getElementById(x); }
 //====================================================================zero = 0 is equal to undefined!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -40,10 +41,12 @@ mazeSubmenu.onclick = (e) => {
             break;
 
         case "HK":
-            const hAndK = new HandK(board.grid);
-            board.wallBoard();
-            hAndK.huntAndKillMaze(column, row);
-            disbaleMenu(true, unvisitedAnimation(hAndK.unvisitedToAnimate));
+            // const hAndK = new HandK(board.grid);
+            // board.wallBoard();
+            // hAndK.huntAndKillMaze(column, row);
+            // disbaleMenu(true, unvisitedAnimation(hAndK.unvisitedToAnimate));
+            board.clearBoard(sliderType);
+            randomBasicMaze(column,row, board.grid);
             break;
 
         case "BT":
@@ -54,7 +57,7 @@ mazeSubmenu.onclick = (e) => {
             break;
     }
     mazeSubmenu.innerHTML = "";
-    setTimeout(() => mazeSubmenu.innerHTML = '<li id="RD">Recursion Division</li><li id="HK">H & K</li><li id="BT">Backtracking</li>', 500);
+    setTimeout(() => mazeSubmenu.innerHTML = '<li id="RD">Recursion Division</li><li id="BT">Backtracking</li><li id="HK">Random Basic Maze</li>', 500);
 
 };
 
@@ -92,19 +95,26 @@ let speed = 0;
 
 speedSubmenu.onclick = (e) => {
     const target = e.target;
-    switch (target.id) {
-        case "speed-slow":
-            speed = 250;
-            break;
 
-        case "speed-average":
-            speed = 50;
-            break;
-
-        default:
-            speed = 0;
-            break;
+    for (const element of speedSubmenu.children) {
+        element.className = "";
     }
+    if ($(target.id).tagName === "LI") {
+        $(target.id).className = "active";
+        switch (target.id) {
+            case "speed-slow":
+                speed = 250;
+                break;
+    
+            case "speed-average":
+                speed = 50;
+                break;
+    
+            default:
+                speed = 0;
+                break;
+        }
+    }   
 };
 
 //============================================================START BUTTON==================================================================

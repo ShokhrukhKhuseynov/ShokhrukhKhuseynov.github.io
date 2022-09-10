@@ -176,7 +176,7 @@ ul li ul {
     transition: all 0.5s;
     transform: translateX(10px);
     /* border: 1px solid rgb(36, 36, 36); */
-    box-shadow: 1px 1px 2px grey;
+    /* box-shadow: 1px 1px 2px grey; */
 
 }
 
@@ -208,6 +208,8 @@ ul li ul:hover {
 #side-bar-buttons-container {
     display: grid;
     align-content: space-evenly;
+    background-color: #272727;
+    height: max-content;
 }
 
 .side-bar-buttons {
@@ -223,7 +225,6 @@ ul li ul:hover {
 
 #play-btn {
     color: #666666;
-    background-color: #272727;
 }
 #play-btn:hover {
     cursor: pointer;
@@ -239,7 +240,6 @@ ul li ul:hover {
 #side-bar-clear-buttons-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-bottom: 10px;
 }
 
 #side-bar-clear-buttons-container * {
@@ -249,7 +249,6 @@ ul li ul:hover {
 
 #clear-path-btn {
     color: #666666;
-    background-color: #272727;
 }
 #clear-path-btn:hover {
     cursor: pointer;
@@ -264,7 +263,7 @@ ul li ul:hover {
 
 #clear-board-btn {
     color: #666666;
-    background-color: #272727;
+
 }
 #clear-board-btn:hover {
     cursor: pointer;
@@ -292,7 +291,7 @@ ul li ul:hover {
     overflow: hidden;
     height: 20px;
     -webkit-appearance: none;
-    background-color: rgb(74, 74, 74);
+    background-color: rgb(60, 60, 60);
     border-radius: 20px;
     max-width: 100%;
     outline: 0;
@@ -304,7 +303,7 @@ ul li ul:hover {
     -webkit-appearance: none;
     height: 20px;
     cursor: ew-resize;
-    background: rgb(74, 74, 74);
+    background: rgb(60, 60, 60);
     box-shadow: -340px 0 0 330px #1597ff, inset 0 0 0 20px #1597ff;
     border-radius: 20px;
     transition: box-shadow 0.2s ease-in-out;
@@ -316,7 +315,7 @@ ul li ul:hover {
     overflow: hidden;
     height: 20px;
     -webkit-appearance: none;
-    background-color: rgb(74, 74, 74);
+    background-color: rgb(60, 60, 60);
     border-radius: 20px;
     max-width: 100%;
     outline: 0;
@@ -329,7 +328,7 @@ ul li ul:hover {
     -webkit-appearance: none;
     height: 20px;
     cursor: ew-resize;
-    background: rgb(74, 74, 74);
+    background: rgb(60, 60, 60);
     box-shadow: -340px 0 0 330px #EB1D36, inset 0 0 0 20px #EB1D36;
     border-radius: 20px;
     transition: box-shadow 0.2s ease-in-out;

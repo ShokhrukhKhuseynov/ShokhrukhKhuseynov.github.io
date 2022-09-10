@@ -22,10 +22,6 @@ export function wallsAnimation(path) {
 
 export function unvisitedAnimation(path) {
 
-    if (document.getElementById(52).className !== "start" && document.getElementById(52).className !== "finish") {
-        document.getElementById(52).className = "unvisited";
-    }
-
     return new Promise((resolve,reject) =>{
         function timeout(array) {
             setTimeout(function () {

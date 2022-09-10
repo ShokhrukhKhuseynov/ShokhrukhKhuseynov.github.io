@@ -24,17 +24,19 @@ export function changeToVisitedNode(value){
 }
 
 export function changeToUnvisitedNode(value){
+    const element = document.getElementById(value);
     if (value !== null) {
-        if (document.getElementById(value).className !== "start" && document.getElementById(value).className !== "finish") {
-            document.getElementById(value).setAttribute('class', 'unvisited');
+        if (element.className !== "start" && element.className !== "finish") {
+            element.className = 'unvisited';
         }
     }
 }
 
 export function changeToWallNode(value){
+    const element = document.getElementById(value);
     if (value !== null) {
-        if (document.getElementById(value).className !== "start" && document.getElementById(value).className !== "finish") {
-            document.getElementById(value).setAttribute('class', 'wall');
+        if (element.className !== "start" && element.className !== "finish") {
+            element.className = 'wall';
         }
     }
 }

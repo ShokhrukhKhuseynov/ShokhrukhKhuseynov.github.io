@@ -20,8 +20,8 @@
             <li class="maze-container"><a>Mazes</a>
                 <ul class="sub-menu" id="maze-sub-menu">
                     <li id="RD">Recursion Division</li>
-                    <li id="HK">H & K</li>
                     <li id="BT">Backtracking</li>
+                    <li id="HK">Random Basic Maze</li>
                 </ul>
             </li>
             <li id="algorithm-container"><a>Algorithms</a>
@@ -53,14 +53,24 @@
                 <button class="side-bar-buttons" id="clear-board-btn" type="button">CLEAR BOARD</button>
             </div>
         </div>
-        <svg id="separator"><rect rx="2" ry="2">/></svg>
+        <svg id="separator">
+            <rect rx="2" ry="2">/>
+        </svg>
         <div id="info-text-container">
             <div> <img src="public/images/info-start.png" />Start Point</div>
             <div><img src="public/images/info-finsih.png" />Target Point</div>
-            <div><div id="visited-cell"></div>Visited Cell</div>
-            <div><div id="shortest-path-cell"></div>Shortest-path</div>
-            <div><div id="unvisited-cell"></div>Unvisited Cell</div>
-            <div><div id="wall-cell"></div>Wall Cell</div>
+            <div>
+                <div id="visited-cell"></div>Visited Cell
+            </div>
+            <div>
+                <div id="shortest-path-cell"></div>Shortest-path
+            </div>
+            <div>
+                <div id="unvisited-cell"></div>Unvisited Cell
+            </div>
+            <div>
+                <div id="wall-cell"></div>Wall Cell
+            </div>
         </div>
     </aside>
     <table id="table">
