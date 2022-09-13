@@ -46,7 +46,7 @@ mazeSubmenu.onclick = (e) => {
             // hAndK.huntAndKillMaze(column, row);
             // disbaleMenu(true, unvisitedAnimation(hAndK.unvisitedToAnimate));
             board.clearBoard(sliderType);
-            randomBasicMaze(column,row, board.grid);
+            randomBasicMaze(column, row, board.grid);
             break;
 
         case "BT":
@@ -105,16 +105,16 @@ speedSubmenu.onclick = (e) => {
             case "speed-slow":
                 speed = 250;
                 break;
-    
+
             case "speed-average":
                 speed = 50;
                 break;
-    
+
             default:
                 speed = 0;
                 break;
         }
-    }   
+    }
 };
 
 //============================================================START BUTTON==================================================================
@@ -209,7 +209,10 @@ async function disbaleMenu(mazeGenerator, func) {
 
 tableContainer.onmousedown = onMouseDown;
 tableContainer.onmouseup = onMouseUp;
-tableContainer.onclick = () => onMouseClick(board.adjacencyList, board.grid);
+tableContainer.onclick = () => {
+    onMouseClick(board.adjacencyList, board.grid, wall);
+    contextMenu.style.display = "none";
+};
 tableContainer.onmouseout = () => onMouseOut(board, sliderType);
 tableContainer.onmouseover = () => {
     const result = onMouseOver(board.adjacencyList, board.grid, startID, finishID, [shortestPathBFS, bidirectionalSearch, greedyBestFirstSearch, aStartSearch], algorithmType);
@@ -221,3 +224,29 @@ tableContainer.onmouseover = () => {
 
 
 //====================================================================================================================================================
+let wall = true;
+const contextMenu = $('context');
+document.oncontextmenu = () => {
+    contextMenu.style.left = `${event.pageX}px`;
+    contextMenu.style.top = `${event.pageY}px`;
+    contextMenu.style.display = "block";
+    return false;
+};
+
+contextMenu.onclick = () => {
+
+    const contextMenuItem = $('context-menu');
+
+    for (const element of contextMenuItem.children) {
+        element.className = "";
+    }
+    if (event.target.tagName === "LI") {
+        if (event.target.innerText === "Wall") {
+            wall = true;
+        } else {
+            wall = false;
+        }
+        event.target.className = "context-menu-item-active";
+        contextMenu.style.display = "none";
+    }
+};

@@ -49,7 +49,8 @@ export async function aStartSearch(adj, grid, start, target, instant, currentSli
 
         for (let i = 0; i < adj[current].length; i++) {
             const neighbour = adj[current][i];
-            const newCost = costSoFar.get(current) + 1;
+            let newCost = costSoFar.get(current) + 1;
+            if(document.getElementById(neighbour).className === "weight") newCost = costSoFar.get(current) + 10;
             if ((!costSoFar.has(neighbour) || newCost < costSoFar.get(neighbour)) && document.getElementById(neighbour).className !== "wall") {
                 const neighbourNode = getNode(grid, neighbour);
                 costSoFar.set(neighbour, newCost);

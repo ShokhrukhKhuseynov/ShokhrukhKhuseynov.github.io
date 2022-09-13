@@ -7,35 +7,41 @@ export let startPoint2Exist = false;
 export let bothPointsExist = false;
 let finishPointExist = true;
 
-export function onMouseDown(){
+export function onMouseDown() {
     mouse_down = true;
 }
 
-export function onMouseUp(){
+export function onMouseUp() {
     mouse_down = false;
 }
 
 
-export function onMouseClick(adjList, grid) {
+export function onMouseClick(adjList, grid, wall) {
 
     const target = event.target;
-   
+
     if (target.tagName === "TD") {
         if (startPointExist && finishPointExist) {
             if (target.className !== "start" && target.className !== "start-shortest-path" && target.className !== "finish" && target.className !== "finish-shortest-path") {
                 if (target.className === "unvisited") {
-                    document.getElementById(target.id).className = "wall";
-                    removeNodeFromAdjList(adjList, parseInt(target.id));
-                } else {
+                    if (wall) {
+                        document.getElementById(target.id).className = "wall";
+                        removeNodeFromAdjList(adjList, parseInt(target.id));
+                    } else {
+                        document.getElementById(target.id).className = "weight";
+                    }
+                } else if (target.className === "wall") {
                     document.getElementById(target.id).className = "unvisited";
                     addNodeToAdjList(adjList, grid, parseInt(target.id));
+                } else {
+                    document.getElementById(target.id).className = "unvisited";
                 }
             }
         }
     }
 }
 
-export function onMouseOut(board, sliderType){
+export function onMouseOut(board, sliderType) {
 
     const target = event.target;
     if (target.tagName === "TD") {
@@ -52,7 +58,7 @@ export function onMouseOut(board, sliderType){
     }
 }
 
-export function onMouseOver(adj, grid, startID, finishID, listAlgorithms, type){
+export function onMouseOver(adj, grid, startID, finishID, listAlgorithms, type) {
 
 
     const target = event.target;
@@ -85,7 +91,7 @@ export function onMouseOver(adj, grid, startID, finishID, listAlgorithms, type){
                 removeNodeFromAdjList(adj, parseInt(target.id));
             } else if (target.className === "wall") {
                 document.getElementById(target.id).className = "unvisited";
-                addNodeToAdjList(adj,grid, parseInt(target.id));
+                addNodeToAdjList(adj, grid, parseInt(target.id));
             }
         }
     }
@@ -95,7 +101,7 @@ export function onMouseOver(adj, grid, startID, finishID, listAlgorithms, type){
 
 
 
-function addNodeToAdjList(adj, grid, nodeId){
+function addNodeToAdjList(adj, grid, nodeId) {
     let targetRow;
     let targetCol;
     for (let i = 0; i < grid.length; i++) {
@@ -103,7 +109,7 @@ function addNodeToAdjList(adj, grid, nodeId){
             if (grid[i][j].id === parseInt(nodeId)) {
                 targetRow = grid[i][j].row;
                 targetCol = grid[i][j].column;
-            }            
+            }
         }
     }
 
@@ -119,7 +125,7 @@ function addNodeToAdjList(adj, grid, nodeId){
 
 }
 
-function removeNodeFromAdjList(adj, nodeId){
+function removeNodeFromAdjList(adj, nodeId) {
     removeEdge(adj, nodeId);
 }
 

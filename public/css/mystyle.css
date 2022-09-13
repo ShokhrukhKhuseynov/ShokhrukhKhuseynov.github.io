@@ -10,8 +10,41 @@ body {
         "sd md";
 }
 
+/* =====================================================================CONTEXT MENU======================================================================= */
 
+#context{
+    position: fixed;
+    box-shadow: 2px 2px 10px gray;
+    background-color: white;
+    display: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    width: 180px;
+    border-radius: 5px;
+}
+#context-menu{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 
+#context-menu li{
+    padding: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.context-menu-item-active::after{
+    float: right;
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-image: url("../images/check.png");
+}
+
+#context-menu li:hover{
+    background-color:#e3e3e3;
+}
 
 
 
@@ -549,6 +582,13 @@ ul li ul:hover {
 
 
 /* -----------------------------------------------------------------WALL AND UNVISITED ------------------------------------------------------------------ */
+
+.weight {
+  background-image: url("../images/weight.png");
+  border: 1px solid #CFD2CF;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 .wall {
     background-color: #003049;

@@ -150,7 +150,7 @@ export class Board {
             if(node.className === "finish-shortest-path"){
                 node.className = "finish";
             }
-            if (node.className !== "start" && node.className !== "finish" && node.className !== "wall" && node.className !== "start2") {
+            if (node.className !== "start" && node.className !== "finish" && node.className !=="weight" && node.className !== "wall" && node.className !== "start2") {
                 node.setAttribute('class', "unvisited");
             }
         }
