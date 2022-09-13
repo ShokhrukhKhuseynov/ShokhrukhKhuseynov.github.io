@@ -46,7 +46,7 @@ mazeSubmenu.onclick = (e) => {
             // hAndK.huntAndKillMaze(column, row);
             // disbaleMenu(true, unvisitedAnimation(hAndK.unvisitedToAnimate));
             board.clearBoard(sliderType);
-            randomBasicMaze(column, row, board.grid);
+            randomBasicMaze(column, row, board.grid, wall);
             break;
 
         case "BT":

@@ -41,6 +41,15 @@ export function changeToWallNode(value){
     }
 }
 
+export function changeToWeightNode(value){
+    const element = document.getElementById(value);
+    if (value !== null) {
+        if (element.className !== "start" && element.className !== "finish") {
+            element.className = 'weight';
+        }
+    }
+}
+
 export function changeToPathNodeWithSlider(value){
     const element = document.getElementById(value);
     if (value !== null) {
