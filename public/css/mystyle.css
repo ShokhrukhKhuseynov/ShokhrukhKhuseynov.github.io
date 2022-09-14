@@ -12,7 +12,7 @@ body {
 
 /* =====================================================================CONTEXT MENU======================================================================= */
 
-#context{
+#context {
     position: fixed;
     box-shadow: 2px 2px 10px gray;
     background-color: white;
@@ -22,19 +22,20 @@ body {
     width: 180px;
     border-radius: 5px;
 }
-#context-menu{
+
+#context-menu {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-#context-menu li{
+#context-menu li {
     padding: 4px;
     padding-left: 10px;
     padding-right: 10px;
 }
 
-.context-menu-item-active::after{
+.context-menu-item-active::after {
     float: right;
     content: "";
     width: 20px;
@@ -42,8 +43,8 @@ body {
     background-image: url("../images/check.png");
 }
 
-#context-menu li:hover{
-    background-color:#e3e3e3;
+#context-menu li:hover {
+    background-color: #e3e3e3;
 }
 
 
@@ -232,7 +233,7 @@ ul li ul:hover {
 }
 
 .menu>li>ul>li:not(:hover) {
-    color:#666666;
+    color: #666666;
 }
 
 
@@ -250,7 +251,7 @@ ul li ul:hover {
     font-size: 20px;
     padding: 2px;
     height: fit-content;
-    color:#666666;
+    color: #666666;
     background-color: unset;
     border-style: none;
     transition: all 0.3s;
@@ -259,11 +260,13 @@ ul li ul:hover {
 #play-btn {
     color: #666666;
 }
+
 #play-btn:hover {
     cursor: pointer;
     color: white;
     background-color: #66DE93;
 }
+
 #play-btn-disabled {
     background-color: #EB1D36;
     color: white;
@@ -283,6 +286,7 @@ ul li ul:hover {
 #clear-path-btn {
     color: #666666;
 }
+
 #clear-path-btn:hover {
     cursor: pointer;
     color: white;
@@ -298,6 +302,7 @@ ul li ul:hover {
     color: #666666;
 
 }
+
 #clear-board-btn:hover {
     cursor: pointer;
     color: white;
@@ -371,7 +376,7 @@ ul li ul:hover {
 
 
 /*-----------------------------------------------------------------------Info----------------------------------------------------------------  */
-#algorithm-response{
+#algorithm-response {
     margin: 0px;
 }
 
@@ -407,7 +412,7 @@ ul li ul:hover {
 
 
 
-#info-text-container{
+#info-text-container {
     display: grid;
 }
 
@@ -419,7 +424,7 @@ ul li ul:hover {
     width: max-content;
 }
 
-#separator{
+#separator {
     width: 20px;
     height: 3px;
     margin-top: 12px;
@@ -427,12 +432,13 @@ ul li ul:hover {
     justify-self: center;
 }
 
-#separator rect{
+#separator rect {
     width: 20px;
     height: 3px;
-    fill:#666666;
+    fill: #666666;
     transition: all 0.7s;
 }
+
 #info-text-container:hover #separator rect {
     fill: white;
 }
@@ -450,33 +456,35 @@ ul li ul:hover {
     row-gap: 10px;
 }
 
-#start-point{
+#start-point {
     background-image: url("../images/info-start-gray.png");
-    background-position:3%;
+    background-position: 3%;
     background-repeat: no-repeat;
-    background-size:contain;
+    background-size: contain;
     padding-left: 23px;
     height: 20px;
     transition: all 0.7s;
 }
-#info-text-container:hover #start-point{
+
+#info-text-container:hover #start-point {
     background-image: url("../images/info-start.png");
 }
 
-#finish-point{
+#finish-point {
     background-image: url("../images/info-finish-gray.png");
-    background-position:3%;
+    background-position: 3%;
     background-repeat: no-repeat;
-    background-size:contain;
+    background-size: contain;
     padding-left: 23px;
     height: 20px;
     transition: all 0.7s;
 }
-#info-text-container:hover #finish-point{
+
+#info-text-container:hover #finish-point {
     background-image: url("../images/info-finsih.png");
 }
 
-#unvisited-cell{
+#unvisited-cell {
     margin-right: 5px;
     float: left;
     border: 1px solid #4d4d4d;
@@ -484,7 +492,8 @@ ul li ul:hover {
     width: 16px;
     transition: all 0.7s;
 }
-#info-text-container:hover #unvisited-cell{
+
+#info-text-container:hover #unvisited-cell {
     margin-right: 5px;
     float: left;
     background-color: white;
@@ -493,7 +502,7 @@ ul li ul:hover {
     width: 16px;
 }
 
-#visited-cell{
+#visited-cell {
     margin-right: 5px;
     float: left;
     border: 1px solid #4d4d4d;
@@ -501,7 +510,8 @@ ul li ul:hover {
     width: 16px;
     transition: all 0.7s;
 }
-#info-text-container:hover #visited-cell{
+
+#info-text-container:hover #visited-cell {
     margin-right: 5px;
     float: left;
     background-color: #66DE93;
@@ -510,7 +520,7 @@ ul li ul:hover {
     width: 16px;
 }
 
-#shortest-path-cell{
+#shortest-path-cell {
     margin-right: 5px;
     float: left;
     border: 1px solid #4d4d4d;
@@ -518,7 +528,8 @@ ul li ul:hover {
     width: 16px;
     transition: all 0.7s;
 }
-#info-text-container:hover #shortest-path-cell{
+
+#info-text-container:hover #shortest-path-cell {
     margin-right: 5px;
     float: left;
     background-color: #fbfe52;
@@ -535,7 +546,8 @@ ul li ul:hover {
     width: 16px;
     transition: all 0.7s;
 }
-#info-text-container:hover #wall-cell{
+
+#info-text-container:hover #wall-cell {
     margin-right: 5px;
     float: left;
     background-color: #003049;
@@ -552,7 +564,7 @@ ul li ul:hover {
 
 /*=========================================================TABLE ANIMATION======================================================================================= */
 
-/* ------------------------------------------------------START AND FINISH POINTS--------------------------------------------------------------------- */
+/* ------------------------------------------------------START, FINISH, WEIGHT NODES--------------------------------------------------------------------- */
 .start {
     background-image: url("../images/start1.png");
     background-repeat: no-repeat;
@@ -577,18 +589,143 @@ ul li ul:hover {
     background-position: center;
 }
 
+.weight {
+    background-image: url("../images/weight.png");
+    border: 1px solid #CFD2CF;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation-name: weightenNodeAnimation;
+    animation-duration: 0.4s;
+}
 
+@keyframes weightenNodeAnimation {
+
+    0% {
+        transform: scale(0.3);
+    }
+
+    25% {
+        transform: scale(0.9);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.weight-visited-slider{
+    background: url("../images/weight.png"), #80ed99;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid#8d9195;
+}
+
+.weight-visited {
+    background: url("../images/weight.png"), #80ed99;
+    border: 1px solid#8d9195;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation-name: weightenVisitedNodeAnimation;
+    animation-duration: 2s;
+}
+
+@keyframes weightenVisitedNodeAnimation {
+
+    0% {
+        transform: scale3d(0.3, 0.3, 0.3);
+        background: url("../images/weight.png"), #FF1700;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 3px;
+    }
+
+    25% {
+        background: url("../images/weight.png"), #22577a;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(0.6, 0.6, 0.6);
+        border-radius: 3px;
+    }
+
+    50% {
+        background: url("../images/weight.png"), #38a3a5;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(0.9, 0.9, 0.9);
+        border-radius: 3px;
+    }
+
+    75% {
+        background: url("../images/weight.png"), #57cc99;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(1.1, 1.1, 1.1);
+        border-radius: 3px;
+    }
+
+    100% {
+        background: url("../images/weight.png"), #80ed99;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(1, 1, 1);
+        border-radius: 3px;
+    }
+}
+
+.weight-shortest-path-slider{
+    background: url("../images/weight.png"), #fbfe52;
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+.weight-shortest-path {
+    background: url("../images/weight.png"), #fbfe52;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation-name: weightenShortestPathNodeAnimation;
+    animation-duration: 2s;
+}
+
+@keyframes weightenShortestPathNodeAnimation {
+
+    0% {
+        background-color: #FEFFDD;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    25% {
+        background-color: #FDFFB7;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+
+    50% {
+        background-color: #FAFE66;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    100% {
+        background-color: #fbfe52;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(1, 1, 1);
+    }
+}
 
 
 
 /* -----------------------------------------------------------------WALL AND UNVISITED ------------------------------------------------------------------ */
 
-.weight {
-  background-image: url("../images/weight.png");
-  border: 1px solid #CFD2CF;
-  background-repeat: no-repeat;
-  background-position: center;
-}
+
 
 .wall {
     background-color: #003049;

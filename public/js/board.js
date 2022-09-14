@@ -150,8 +150,11 @@ export class Board {
             if(node.className === "finish-shortest-path"){
                 node.className = "finish";
             }
-            if (node.className !== "start" && node.className !== "finish" && node.className !=="weight" && node.className !== "wall" && node.className !== "start2") {
-                node.setAttribute('class', "unvisited");
+            if(node.className === "weight-shortest-path-slider" || node.className === "weight-visited-slider" || node.className === "weight-visited" || node.className === "weight-shortest-path"){
+                node.className = "weight";
+            }
+            if (node.className !== "start" && node.className !== "finish" && node.className !=="weight" && node.className !== "wall") {
+                node.className = "unvisited";
             }
         }
     }
@@ -165,8 +168,11 @@ export class Board {
             if(node.className === "finish-shortest-path"){
                 node.className = "finish";
             }
-            if (node.className !== "start" && node.className !== "finish" && node.className !== "wall" && node.className !== "start2") {
-                node.setAttribute('class', "unvisited");
+            if(node.className === "weight-shortest-path-slider" || node.className === "weight-visited-slider" || node.className === "weight-visited" || node.className === "weight-shortest-path"){
+                node.className = "weight";
+            }
+            if (node.className !== "start" && node.className !== "finish"  && node.className !=="weight" && node.className !== "wall") {
+                node.className = "unvisited";
             }
         }
     }
