@@ -47,6 +47,11 @@ body {
     background-color: #e3e3e3;
 }
 
+.context-menu-item-inactive{
+    color: grey;
+    pointer-events: none;
+
+}
 
 
 
@@ -484,22 +489,18 @@ ul li ul:hover {
     background-image: url("../images/info-finsih.png");
 }
 
-#unvisited-cell {
-    margin-right: 5px;
-    float: left;
-    border: 1px solid #4d4d4d;
-    height: 16px;
-    width: 16px;
+#weighten-cell {
+    background-image: url("../images/weight-grey.png");
+    background-position: 0%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 23px;
+    height: 20px;
     transition: all 0.7s;
 }
 
-#info-text-container:hover #unvisited-cell {
-    margin-right: 5px;
-    float: left;
-    background-color: white;
-    border: 1px solid #4d4d4d;
-    height: 16px;
-    width: 16px;
+#info-text-container:hover #weighten-cell {
+    background-image: url("../images/weight.png");
 }
 
 #visited-cell {

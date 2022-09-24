@@ -47,9 +47,11 @@ export async function greedyBestFirstSearch(adj, grid, start, target, instant, c
 
         for (let i = 0; i < adj[current].length; i++) {
             const neighbour = adj[current][i];
+            let newCost = 0;
+            if(document.getElementById(neighbour).className === "weight") newCost = 10;
             if (!visited[neighbour] && document.getElementById(neighbour).className !== "wall") {
                 const neighbourNode = getNode(grid, neighbour);
-                const priority = heuristicManhattan(targetNode, neighbourNode);
+                const priority = newCost + heuristicManhattan(targetNode, neighbourNode);
                 priorityQueue.enqueue(neighbour, priority);
                 previous.set(neighbour, current);
                 visited[neighbour] = true;

@@ -9,8 +9,9 @@ import { greedyBestFirstSearch } from './algorithms/greedyBestFirst.js';
 import { aStartSearch } from './algorithms/AStar.js';
 import { BacktrackingMaze } from './mazes/backtracking.js';
 import { randomBasicMaze } from './mazes/basicMaze.js';
-const tableContainer = document.getElementById("tableContainer");
 function $(x) { return document.getElementById(x); }
+const tableContainer = $("tableContainer");
+
 //====================================================================zero = 0 is equal to undefined!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -23,13 +24,13 @@ board.setup();
 
 let startID = 600;
 let finishID = 620;
-document.getElementById(startID).className = "start";
-document.getElementById(finishID).className = "finish";
+$(startID).className = "start";
+$(finishID).className = "finish";
 
 
 //==============================================MAZES=========================================================================================
 
-const mazeSubmenu = document.getElementById('maze-sub-menu');
+const mazeSubmenu = $('maze-sub-menu');
 mazeSubmenu.onclick = (e) => {
     const target = e.target;
     switch (target.id) {
@@ -57,14 +58,17 @@ mazeSubmenu.onclick = (e) => {
             break;
     }
     mazeSubmenu.innerHTML = "";
-    setTimeout(() => mazeSubmenu.innerHTML = '<li id="RD">Recursion Division</li><li id="BT">Backtracking</li><li id="HK">Random Basic Maze</li>', 500);
+    setTimeout(() => {
+        if (wall) mazeSubmenu.innerHTML = '<li id="RD">Recursion Division</li><li id="BT">Backtracking</li><li id="HK">Random Basic Maze</li>';
+        else mazeSubmenu.innerHTML = '<li id="HK">Random Basic Maze</li>';
+    }, 500);
 
 };
 
 //==========================================================ALGORITHMS=================================================================================
 
-const a = document.getElementById("algorithm-response");
-const algoSubmenu = document.getElementById('algo-sub-menu');
+const a = $("algorithm-response");
+const algoSubmenu = $('algo-sub-menu');
 let algorithmType = null;
 let activeElement = false;
 algoSubmenu.onclick = (e) => {
@@ -75,14 +79,14 @@ algoSubmenu.onclick = (e) => {
         element.className = "";
         a.id = "algorithm-response";
         a.innerHTML = "";
-        if (sliderType !== "slider-disabled") sliderType = document.getElementById('slider').id = "slider-disabled";
+        if (sliderType !== "slider-disabled") sliderType = $(sliderType).id = "slider-disabled";
     }
     if ($(target.id).tagName === "LI") {
         $(target.id).className = "active";
         algorithmType = $(target.id).id;
         a.id = "algorithm-response-selected";
         a.innerHTML = $(target.id).innerHTML;
-        sliderType = document.getElementById('slider-disabled').id = "slider";
+        sliderType = $(sliderType).id = "slider";
         activeElement = true;
     }
 };
@@ -90,7 +94,7 @@ algoSubmenu.onclick = (e) => {
 
 //======================================================SPEED===============================================================================
 
-const speedSubmenu = document.getElementById('speed-sub-menu');
+const speedSubmenu = $('speed-sub-menu');
 let speed = 0;
 
 speedSubmenu.onclick = (e) => {
@@ -119,10 +123,10 @@ speedSubmenu.onclick = (e) => {
 
 //============================================================START BUTTON==================================================================
 
-const playBtn = document.getElementById("play-btn");
+const playBtn = $("play-btn");
 playBtn.onclick = () => {
     board.resetBoard(sliderType);
-    if (sliderType !== "slider-disabled") sliderType = document.getElementById('slider').id = "slider-disabled";
+    if (sliderType !== "slider-disabled") sliderType = $(sliderType).id = "slider-disabled";
     switch (algorithmType) {
         case "BFS":
             disbaleMenu(false, shortestPathBFS(board.adjacencyList, startID, finishID, false, 0, false, sliderType, speed));
@@ -151,7 +155,7 @@ playBtn.onclick = () => {
 
 //========================================================SLIDER=======================================================================================
 
-const slider = document.getElementById('slider-disabled');
+const slider = $('slider-disabled');
 let sliderType = slider.id;
 
 slider.oninput = () => {
@@ -170,10 +174,10 @@ slider.oninput = () => {
 
 //========================================================CLEAR BUTTONS==============================================================================
 
-const clearBoardBtn = document.getElementById("clear-board-btn");
+const clearBoardBtn = $("clear-board-btn");
 clearBoardBtn.onclick = () => board.clearBoard(sliderType);
 
-const clearPathBtn = document.getElementById("clear-path-btn");
+const clearPathBtn = $("clear-path-btn");
 clearPathBtn.onclick = () => board.resetBoard(sliderType);
 
 
@@ -182,26 +186,26 @@ clearPathBtn.onclick = () => board.resetBoard(sliderType);
 
 async function disbaleMenu(mazeGenerator, func) {
 
-    const sideBar = document.getElementById('side-bar');
+    const sideBar = $('side-bar');
     const menu = document.getElementsByClassName('menu')[0];
 
     sideBar.style.pointerEvents = "none";
     menu.style.color = "#666666";
-    document.getElementById('play-btn').id = "play-btn-disabled";
-    document.getElementById('clear-path-btn').id = "clear-path-btn-disabled";
-    document.getElementById('clear-board-btn').id = "clear-board-btn-disabled";
-    document.getElementById('table').id = "table-disabled";
+    $('play-btn').id = "play-btn-disabled";
+    $('clear-path-btn').id = "clear-path-btn-disabled";
+    $('clear-board-btn').id = "clear-board-btn-disabled";
+    $('table').id = "table-disabled";
 
     await func;
 
     sideBar.style.pointerEvents = "all";
     menu.style.color = "#666666";
-    document.getElementById('play-btn-disabled').id = "play-btn";
-    document.getElementById('clear-path-btn-disabled').id = "clear-path-btn";
-    document.getElementById('clear-board-btn-disabled').id = "clear-board-btn";
-    document.getElementById('table-disabled').id = "table";
+    $('play-btn-disabled').id = "play-btn";
+    $('clear-path-btn-disabled').id = "clear-path-btn";
+    $('clear-board-btn-disabled').id = "clear-board-btn";
+    $('table-disabled').id = "table";
 
-    if (!mazeGenerator) sliderType = document.getElementById('slider-disabled').id = "slider";
+    if (!mazeGenerator) sliderType = $('slider-disabled').id = "slider";
 
 }
 
@@ -215,7 +219,7 @@ tableContainer.onclick = () => {
 };
 tableContainer.onmouseout = () => onMouseOut(board, sliderType);
 tableContainer.onmouseover = () => {
-    const result = onMouseOver(board.adjacencyList, board.grid, startID, finishID, [shortestPathBFS, bidirectionalSearch, greedyBestFirstSearch, aStartSearch], algorithmType);
+    const result = onMouseOver(board.adjacencyList, board.grid, startID, finishID, [shortestPathBFS, bidirectionalSearch, greedyBestFirstSearch, aStartSearch], algorithmType, wall);
 
     startID = result[0];
     finishID = result[1];
@@ -226,7 +230,16 @@ tableContainer.onmouseover = () => {
 //====================================================================================================================================================
 let wall = true;
 const contextMenu = $('context');
+const contextMenuItem = $('context-menu');
+const algorithmSubMenu = $("algorithm-container");
 document.oncontextmenu = () => {
+
+    if (algorithmType === "BFS" || algorithmType === "BID") {
+        contextMenuItem.lastElementChild.className = "context-menu-item-inactive";
+    } else {
+        if (contextMenuItem.lastElementChild.className !== "context-menu-item-active") contextMenuItem.lastElementChild.className = "";
+    }
+
     contextMenu.style.left = `${event.pageX}px`;
     contextMenu.style.top = `${event.pageY}px`;
     contextMenu.style.display = "block";
@@ -235,18 +248,28 @@ document.oncontextmenu = () => {
 
 contextMenu.onclick = () => {
 
-    const contextMenuItem = $('context-menu');
 
-    for (const element of contextMenuItem.children) {
-        element.className = "";
-    }
     if (event.target.tagName === "LI") {
         if (event.target.innerText === "Wall") {
             wall = true;
+            mazeSubmenu.innerHTML = '<li id="RD">Recursion Division</li><li id="BT">Backtracking</li><li id="HK">Random Basic Maze</li>';
+            algoSubmenu.innerHTML = '<li id="BFS">Breadth First Search</li><li id="BID">Bidirectional</li><li id="GBFS">Greedy Best-First Search</li><li id="ASTAR">A* Search</li>';
         } else {
             wall = false;
+            mazeSubmenu.innerHTML = '<li id="HK">Random Basic Maze</li>';
+            algoSubmenu.innerHTML = '<li id="GBFS">Greedy Best-First Search</li><li id="ASTAR">A* Search</li>';
         }
-        event.target.className = "context-menu-item-active";
+        algorithmType = null;
+        sliderType = $(sliderType).id = "slider-disabled";
+        $(sliderType).value = 0;
+        a.id = "algorithm-response";
+        a.innerText = "";
+        for (const element of contextMenuItem.children) {
+            if (element.innerText === event.target.innerText) {
+                element.className = "context-menu-item-active";
+            }
+            else element.className = "";
+        }
         contextMenu.style.display = "none";
     }
 };

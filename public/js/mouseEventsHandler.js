@@ -58,7 +58,7 @@ export function onMouseOut(board, sliderType) {
     }
 }
 
-export function onMouseOver(adj, grid, startID, finishID, listAlgorithms, type) {
+export function onMouseOver(adj, grid, startID, finishID, listAlgorithms, type, wall) {
 
 
     const target = event.target;
@@ -86,13 +86,21 @@ export function onMouseOver(adj, grid, startID, finishID, listAlgorithms, type) 
         }
     } else {
         if (mouse_down) {
-            if (target.className === "unvisited") {
-                document.getElementById(target.id).className = "wall";
-                removeNodeFromAdjList(adj, parseInt(target.id));
-            } else if (target.className === "wall") {
-                document.getElementById(target.id).className = "unvisited";
-                addNodeToAdjList(adj, grid, parseInt(target.id));
-            }
+            if(wall){
+                if (target.className === "unvisited" || target.className === "weight") {
+                    document.getElementById(target.id).className = "wall";
+                    removeNodeFromAdjList(adj, parseInt(target.id));
+                } else if (target.className === "wall" || target.className === "weight") {
+                    document.getElementById(target.id).className = "unvisited";
+                    addNodeToAdjList(adj, grid, parseInt(target.id));
+                }
+            }else{
+                if (target.className === "unvisited" || target.className === "wall") {
+                    document.getElementById(target.id).className = "weight";
+                } else if (target.className === "weight" || target.className === "wall") {
+                    document.getElementById(target.id).className = "unvisited";
+                }
+            }   
         }
     }
 
