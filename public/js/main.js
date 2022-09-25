@@ -195,7 +195,6 @@ async function disbaleMenu(mazeGenerator, func) {
     $('clear-path-btn').id = "clear-path-btn-disabled";
     $('clear-board-btn').id = "clear-board-btn-disabled";
     $('table').id = "table-disabled";
-
     await func;
 
     sideBar.style.pointerEvents = "all";
@@ -232,25 +231,30 @@ tableContainer.onmouseover = () => {
 let wall = true;
 const contextMenu = $('context');
 const contextMenuItem = $('context-menu');
-const algorithmSubMenu = $("algorithm-container");
 document.oncontextmenu = () => {
-
-    if (algorithmType === "BFS" || algorithmType === "BID") {
-        contextMenuItem.lastElementChild.className = "context-menu-item-inactive";
-    } else {
-        if (contextMenuItem.lastElementChild.className !== "context-menu-item-active") contextMenuItem.lastElementChild.className = "";
+    if($('table-disabled')){
+        return false;
+    }else{
+        if (algorithmType === "BFS" || algorithmType === "BID") {
+            contextMenuItem.lastElementChild.className = "context-menu-item-inactive";
+        } else {
+            if (contextMenuItem.lastElementChild.className !== "context-menu-item-active") contextMenuItem.lastElementChild.className = "";
+        }
+    
+        contextMenu.style.left = `${event.pageX}px`;
+        contextMenu.style.top = `${event.pageY}px`;
+        contextMenu.style.display = "block";
+        return false;
     }
-
-    contextMenu.style.left = `${event.pageX}px`;
-    contextMenu.style.top = `${event.pageY}px`;
-    contextMenu.style.display = "block";
-    return false;
+  
+  
 };
 
 contextMenu.onclick = () => {
 
 
     if (event.target.tagName === "LI") {
+        board.resetBoard(sliderType);
         if (event.target.innerText === "Wall") {
             wall = true;
             mazeSubmenu.innerHTML = '<li id="RD">Recursion Division</li><li id="BT">Backtracking</li><li id="HK">Random Basic Maze</li>';
@@ -274,3 +278,5 @@ contextMenu.onclick = () => {
         contextMenu.style.display = "none";
     }
 };
+
+$('side-bar').onclick = () => contextMenu.style.display = "none";
