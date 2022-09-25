@@ -47,7 +47,7 @@ body {
     background-color: #e3e3e3;
 }
 
-.context-menu-item-inactive{
+.context-menu-item-inactive {
     color: grey;
     pointer-events: none;
 
@@ -572,7 +572,100 @@ ul li ul:hover {
     background-position: center;
 }
 
+.start-visited {
+    background: url("../images/start1-visited.png"), #80ed99;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation-name: visitedStartAnimation;
+    animation-duration: 2s;
+}
+
+@keyframes visitedStartAnimation {
+
+    0% {
+        transform: scale3d(0.5, 0.5, 0.5);
+        background-color: #FF1700;
+        border-radius: 3px;
+    }
+
+    25% {
+        background: url("../images/start1-visited.png"), #22577a;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(0.6, 0.6, 0.6);
+        border-radius: 3px;
+    }
+
+    50% {
+        background: url("../images/start1-visited.png"), #38a3a5;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(0.8, 0.8, 0.8);
+        border-radius: 3px;
+    }
+
+    75% {
+        background: url("../images/start1-visited.png"), #57cc99;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(1.1, 1.1, 1.1);
+        border-radius: 3px;
+    }
+
+    100% {
+        background: url("../images/start1-visited.png"), #80ed99;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(1, 1, 1);
+        border-radius: 3px;
+    }
+}
+
 .start-shortest-path {
+    background: url("../images/start1-path.png"), #fbfe52;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation-name: startShortestPathAnimation;
+    animation-duration: 1s;
+}
+
+@keyframes startShortestPathAnimation {
+    0% {
+        background: url("../images/start1-path.png"), #FEFFDD;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(0.7, 0.7, 0.7);
+    }
+
+    25% {
+        background: url("../images/start1-path.png"), #FDFFB7;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+
+    50% {
+        background: url("../images/start1-path.png"), #FAFE66;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    100% {
+        background: url("../images/start1-path.png"), #fbfe52;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.start-visited-slider {
+    background: url("../images/start1-visited.png"), #80ed99;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.start-shortest-path-slider {
     background: url("../images/start1-path.png"), #fbfe52;
     background-repeat: no-repeat;
     background-position: center;
@@ -583,8 +676,100 @@ ul li ul:hover {
     background-repeat: no-repeat;
     background-position: center;
 }
+.finish-visited {
+    background: url("../images/finish-visited.png"), #80ed99;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation-name: visitedFinishAnimation;
+    animation-duration: 2s;
+}
+
+@keyframes visitedFinishAnimation {
+
+    0% {
+        transform: scale3d(0.5, 0.5, 0.5);
+        background-color: #FF1700;
+        border-radius: 3px;
+    }
+
+    25% {
+        background: url("../images/finish-visited.png"), #22577a;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(0.6, 0.6, 0.6);
+        border-radius: 3px;
+    }
+
+    50% {
+        background: url("../images/finish-visited.png"), #38a3a5;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(0.8, 0.8, 0.8);
+        border-radius: 3px;
+    }
+
+    75% {
+        background: url("../images/finish-visited.png"), #57cc99;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(1.1, 1.1, 1.1);
+        border-radius: 3px;
+    }
+
+    100% {
+        background: url("../images/finish-visited.png"), #80ed99;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(1, 1, 1);
+        border-radius: 3px;
+    }
+}
 
 .finish-shortest-path {
+    background: url("../images/finish-path.png"), #fbfe52;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation-name: finishShortestPathAnimation;
+    animation-duration: 1s;
+}
+
+@keyframes finishShortestPathAnimation {
+    0% {
+        background: url("../images/finish-path.png"), #FEFFDD;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(0.7, 0.7, 0.7);
+    }
+
+    25% {
+        background: url("../images/finish-path.png"), #FDFFB7;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+
+    50% {
+        background: url("../images/finish-path.png"), #FAFE66;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    100% {
+        background: url("../images/finish-path.png"), #fbfe52;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.finish-visited-slider {
+    background: url("../images/finish-visited.png"), #80ed99;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.finish-shortest-path-slider{
     background: url("../images/finish-path.png"), #fbfe52;
     background-repeat: no-repeat;
     background-position: center;
@@ -618,7 +803,7 @@ ul li ul:hover {
     }
 }
 
-.weight-visited-slider{
+.weight-visited-slider {
     background: url("../images/weight.png"), #80ed99;
     background-repeat: no-repeat;
     background-position: center;
@@ -677,10 +862,10 @@ ul li ul:hover {
     }
 }
 
-.weight-shortest-path-slider{
+.weight-shortest-path-slider {
     background: url("../images/weight.png"), #fbfe52;
     background-repeat: no-repeat;
-    background-position: center; 
+    background-position: center;
 }
 
 .weight-shortest-path {
@@ -838,8 +1023,6 @@ ul li ul:hover {
     background-color: #FFFE6A;
     animation: shortestPath;
     animation-duration: 2s;
-
-
 }
 
 @keyframes shortestPath {

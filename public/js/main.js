@@ -214,6 +214,7 @@ async function disbaleMenu(mazeGenerator, func) {
 tableContainer.onmousedown = onMouseDown;
 tableContainer.onmouseup = onMouseUp;
 tableContainer.onclick = () => {
+    board.resetBoard(sliderType);
     onMouseClick(board.adjacencyList, board.grid, wall);
     contextMenu.style.display = "none";
 };

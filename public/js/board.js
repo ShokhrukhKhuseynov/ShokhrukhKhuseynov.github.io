@@ -144,10 +144,10 @@ export class Board {
         document.getElementById(sliderType).value = 0;
         for (let i = 0; i < this.row * this.column; i++) {
             const node = document.getElementById(`${i}`);
-            if(node.className === "start-shortest-path"){
+            if(node.className === "start-shortest-path" || node.className === "start-shortest-path-slider" || node.className === "start-visited-slider" || node.className === "start-visited"){
                 node.className = "start";
             }
-            if(node.className === "finish-shortest-path"){
+            if(node.className === "finish-shortest-path" || node.className === "finish-shortest-path-slider" || node.className === "finish-visited-slider" || node.className === "finish-visited"){
                 node.className = "finish";
             }
             if(node.className === "weight-shortest-path-slider" || node.className === "weight-visited-slider" || node.className === "weight-visited" || node.className === "weight-shortest-path"){
@@ -162,10 +162,10 @@ export class Board {
     resetBoardForSlider(){
         for (let i = 0; i < this.row * this.column; i++) {
             const node = document.getElementById(`${i}`);
-            if(node.className === "start-shortest-path"){
+            if(node.className === "start-shortest-path" || node.className === "start-shortest-path-slider" || node.className === "start-visited-slider" || node.className === "start-visited"){
                 node.className = "start";
             }
-            if(node.className === "finish-shortest-path"){
+            if(node.className === "finish-shortest-path" || node.className === "finish-shortest-path-slider" || node.className === "finish-visited-slider" || node.className === "finish-visited"){
                 node.className = "finish";
             }
             if(node.className === "weight-shortest-path-slider" || node.className === "weight-visited-slider" || node.className === "weight-visited" || node.className === "weight-shortest-path"){
