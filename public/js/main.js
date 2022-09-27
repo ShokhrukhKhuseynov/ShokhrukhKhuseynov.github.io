@@ -27,16 +27,50 @@ let finishID = 620;
 $(startID).className = "start";
 $(finishID).className = "finish";
 
+//==============================================DIALOG MENU=========================================================================================
+
+const dialog = document.getElementsByClassName('dialog')[0];
+const nextButton = $('next');
+const previousButton = $('previous');
+let closeButton = $('close');
+
+function closeDialog(){
+    dialog.style.display = "none";
+}
+closeButton.onclick = closeDialog;
+nextButton.addEventListener('click', changeDialogPage);
+
+function changeDialogPage() {
+    switch (dialog.id) {
+        case 'page-1':
+            dialog.innerHTML = '<h1>Alogirthms</h1><p>There are two types of algorithms <b>weigthen</b> and <b>unweighted</b></p>' +
+                '<p><b>Weigthen</b> ones is able to count the cost of next step, therefore weigthen cells <b>can</b> be apllied<br>' +
+                '<b>Unweighted</b> ones assumes each next step has cost of 1, therefore weigthen cells <b>cannot</b> be applied</p>' +
+                '<p><b>Breadth First Search</b> is unweighted, shortest path is guaranteed<br>' +
+                '<b>Bidirectional</b> is unweighted, shortest path is not guaranteed<br>' +
+                '<b>Greedy Best-First Search</b> is weighted, shortest path is not guaranteed<br>' +
+                '<b>A* Search</b> is weighted, shortest path is guaranteed</p>'+
+                '<button class="dialog-button" id="previous">PREVIOUS</button><button class="dialog-button" id="next">NEXT</button><button class="dialog-button" id="close">CLOSE</button>';
+            dialog.id = 'page-2';
+            break;
+            case 'page-2':
+                dialog.innerHTML ='<h1>Tips</h1>'+
+                '<button class="dialog-button" id="previous">PREVIOUS</button><button class="dialog-button" id="next">NEXT</button><button class="dialog-button" id="close">CLOSE</button>';
+                dialog.id = "page-3";
+                break; 
+    }
+}
+
 
 //==============================================MAZES=========================================================================================
 
 const mazeSubmenu = $('maze-sub-menu');
 mazeSubmenu.onclick = (e) => {
     const target = e.target;
+    board.clearBoard(sliderType);
     switch (target.id) {
         case "RD":
             const recDiv = new RecursionDivision(board.grid);
-            board.clearBoard(sliderType);
             recDiv.recursiveDivisionMaze(column, row);
             disbaleMenu(true, wallsAnimation(recDiv.wallsToAnimate));
             break;
@@ -46,7 +80,6 @@ mazeSubmenu.onclick = (e) => {
             // board.wallBoard();
             // hAndK.huntAndKillMaze(column, row);
             // disbaleMenu(true, unvisitedAnimation(hAndK.unvisitedToAnimate));
-            board.clearBoard(sliderType);
             randomBasicMaze(column, row, board.grid, wall);
             break;
 
@@ -204,7 +237,7 @@ async function disbaleMenu(mazeGenerator, func) {
     $('clear-board-btn-disabled').id = "clear-board-btn";
     $('table-disabled').id = "table";
 
-    if (!mazeGenerator) sliderType = $('slider-disabled').id = "slider";
+    if (!mazeGenerator) sliderType = $(sliderType).id = "slider";
 
 }
 
@@ -232,22 +265,22 @@ let wall = true;
 const contextMenu = $('context');
 const contextMenuItem = $('context-menu');
 document.oncontextmenu = () => {
-    if($('table-disabled')){
+    if ($('table-disabled')) {
         return false;
-    }else{
+    } else {
         if (algorithmType === "BFS" || algorithmType === "BID") {
             contextMenuItem.lastElementChild.className = "context-menu-item-inactive";
         } else {
             if (contextMenuItem.lastElementChild.className !== "context-menu-item-active") contextMenuItem.lastElementChild.className = "";
         }
-    
+
         contextMenu.style.left = `${event.pageX}px`;
         contextMenu.style.top = `${event.pageY}px`;
         contextMenu.style.display = "block";
         return false;
     }
-  
-  
+
+
 };
 
 contextMenu.onclick = () => {

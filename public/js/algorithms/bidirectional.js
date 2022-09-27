@@ -5,6 +5,8 @@ import { changeToPathNode, changeToVisitedNode } from "../elementsClassChanger.j
 export async function bidirectionalSearch(adj, startNode, targetNode, instant, currentSliderVal, slider, sliderType, speed) {
     let shortestPath = [];
     const visitedNodesToAnimate = [];
+    visitedNodesToAnimate.push(startNode);
+    visitedNodesToAnimate.push(targetNode);
 
     const visited1 = [];
     const visited2 = [];
