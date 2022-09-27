@@ -27,20 +27,67 @@ let finishID = 620;
 $(startID).className = "start";
 $(finishID).className = "finish";
 
+const sideBar = $('side-bar');
+sideBar.style.pointerEvents = "none";
+let table = $('table').id = "table-disabled";
+
+
 //==============================================DIALOG MENU=========================================================================================
 
 const dialog = document.getElementsByClassName('dialog')[0];
-const nextButton = $('next');
-const previousButton = $('previous');
-let closeButton = $('close');
 
-function closeDialog(){
-    dialog.style.display = "none";
+dialog.onclick = () => {
+
+    const target = event.target;
+
+    if (target.tagName === "BUTTON") {
+
+        switch (target.id) {
+
+            case "next":
+                nextDialogPage();
+                break;
+
+            case "previous":
+                previousDialogPage();
+                break;
+
+            case "close":
+                dialog.style.display = "none";
+                sideBar.style.pointerEvents = "all";
+                table = $(table).id = "table";
+                break;
+        }
+    }
 }
-closeButton.onclick = closeDialog;
-nextButton.addEventListener('click', changeDialogPage);
 
-function changeDialogPage() {
+function previousDialogPage() {
+    switch (dialog.id) {
+        case 'page-2':
+            dialog.innerHTML = ' <h1>Welcome to Path Finder</h1>' +
+                '<h3>This aplication demonstrates in action different types of pathfinding algorithms</h3>' +
+                '<p>The algorithms explore grid to find shortest path between two points</p>' +
+                '<img id="dialog-image" src="./public/images/twoPoints.png"/>'+
+                '<button class="dialog-button" id="previous">PREVIOUS</button><button class="dialog-button" id="next">NEXT</button><button class="dialog-button" id="close">CLOSE</button>';
+            dialog.id = 'page-1';
+            $('previous').style.display = "none";
+            break;
+        case 'page-3':
+            dialog.innerHTML = '<h1>Alogirthms</h1><p>There are two types of algorithms <b>weigthen</b> and <b>unweighted</b></p>' +
+                '<p><b>Weigthen</b> ones is able to count the cost of next step, therefore weigthen cells <b>can</b> be apllied<br>' +
+                '<b>Unweighted</b> ones assumes each next step has cost of 1, therefore weigthen cells <b>cannot</b> be applied</p>' +
+                '<p><b>Breadth First Search</b> is unweighted, shortest path is guaranteed<br>' +
+                '<b>Bidirectional</b> is unweighted, shortest path is not guaranteed<br>' +
+                '<b>Greedy Best-First Search</b> is weighted, shortest path is not guaranteed<br>' +
+                '<b>A* Search</b> is weighted, shortest path is guaranteed</p>' +
+                '<button class="dialog-button" id="previous">PREVIOUS</button><button class="dialog-button" id="next">NEXT</button><button class="dialog-button" id="close">CLOSE</button>';
+            dialog.id = "page-2";
+            $('next').style.display = "inline";
+            break;
+    }
+}
+
+function nextDialogPage() {
     switch (dialog.id) {
         case 'page-1':
             dialog.innerHTML = '<h1>Alogirthms</h1><p>There are two types of algorithms <b>weigthen</b> and <b>unweighted</b></p>' +
@@ -49,15 +96,19 @@ function changeDialogPage() {
                 '<p><b>Breadth First Search</b> is unweighted, shortest path is guaranteed<br>' +
                 '<b>Bidirectional</b> is unweighted, shortest path is not guaranteed<br>' +
                 '<b>Greedy Best-First Search</b> is weighted, shortest path is not guaranteed<br>' +
-                '<b>A* Search</b> is weighted, shortest path is guaranteed</p>'+
+                '<b>A* Search</b> is weighted, shortest path is guaranteed</p>' +
                 '<button class="dialog-button" id="previous">PREVIOUS</button><button class="dialog-button" id="next">NEXT</button><button class="dialog-button" id="close">CLOSE</button>';
             dialog.id = 'page-2';
+            $('previous').style.display = "inline";
             break;
-            case 'page-2':
-                dialog.innerHTML ='<h1>Tips</h1>'+
+        case 'page-2':
+            dialog.innerHTML = '<h1>Wall</h1>' +
+            '<p>Press left mouse button and drag it</p>' +
+            '<img id="dialog-image" src="./public/images/wallGif.gif"/>'+
                 '<button class="dialog-button" id="previous">PREVIOUS</button><button class="dialog-button" id="next">NEXT</button><button class="dialog-button" id="close">CLOSE</button>';
-                dialog.id = "page-3";
-                break; 
+            dialog.id = "page-3";
+            $('next').style.display = "none";
+            break;
     }
 }
 
@@ -219,7 +270,7 @@ clearPathBtn.onclick = () => board.resetBoard(sliderType);
 
 async function disbaleMenu(mazeGenerator, func) {
 
-    const sideBar = $('side-bar');
+   
     const menu = document.getElementsByClassName('menu')[0];
 
     sideBar.style.pointerEvents = "none";
@@ -260,7 +311,7 @@ tableContainer.onmouseover = () => {
 
 
 
-//====================================================================================================================================================
+//===========================================================CONTEXT MENU=========================================================================================
 let wall = true;
 const contextMenu = $('context');
 const contextMenuItem = $('context-menu');

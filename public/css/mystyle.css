@@ -57,10 +57,10 @@ body {
 /* =====================================================================Dialog======================================================================= */
 
 .dialog{
-    width: max-content;
+    width: 800px;
     height: max-content;
     border: black solid 1px;
-    position: absolute;
+    position: fixed;
     background-color: white;
     left: 50%;
     top: 50%;
@@ -69,11 +69,11 @@ body {
     font-family: 'Poppins', sans-serif;
     padding: 5px;
     display: block;
-    
+    border-radius: 3px;
 }
 .dialog h1{
     font-family: 'Quantico', sans-serif;
-    color: #26286a;
+    color: #252771;
 }
 
 .dialog h3{
@@ -81,12 +81,27 @@ body {
 }
 
 .dialog-button{
-    background-color: #0ae39b;
+    background-color: #248AFF;
     color: white;
     cursor: pointer;
     border-style: none;
-    padding: 10px;
-    margin: 5px;
+    height: 35px;
+    width: 80px;
+    margin-left: 10px;
+    border-radius: 3px;
+}
+
+#dialog-image{
+    display: block;
+    height: 250px;
+    width: 250px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+#close{
+    float: right;
+    background-color: #EB1D36;
 }
 
 /* =====================================================================TABLE======================================================================= */
