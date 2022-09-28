@@ -30,6 +30,7 @@ $(finishID).className = "finish";
 const sideBar = $('side-bar');
 sideBar.style.pointerEvents = "none";
 let table = $('table').id = "table-disabled";
+const weightenCells = new Array();
 
 
 //==============================================DIALOG MENU=========================================================================================
@@ -64,25 +65,51 @@ dialog.onclick = () => {
 function previousDialogPage() {
     switch (dialog.id) {
         case 'page-2':
+            dialog.id = 'page-1';
             dialog.innerHTML = ' <h1>Welcome to Path Finder</h1>' +
                 '<h3>This aplication demonstrates in action different types of pathfinding algorithms</h3>' +
                 '<p>The algorithms explore grid to find shortest path between two points</p>' +
-                '<img id="dialog-image" src="./public/images/twoPoints.png"/>'+
+                '<img id="dialog-image" src="./public/images/twoPoints.png"/>' +
                 '<button class="dialog-button" id="previous">PREVIOUS</button><button class="dialog-button" id="next">NEXT</button><button class="dialog-button" id="close">CLOSE</button>';
-            dialog.id = 'page-1';
             $('previous').style.display = "none";
             break;
+
         case 'page-3':
-            dialog.innerHTML = '<h1>Alogirthms</h1><p>There are two types of algorithms <b>weigthen</b> and <b>unweighted</b></p>' +
-                '<p><b>Weigthen</b> ones is able to count the cost of next step, therefore weigthen cells <b>can</b> be apllied<br>' +
-                '<b>Unweighted</b> ones assumes each next step has cost of 1, therefore weigthen cells <b>cannot</b> be applied</p>' +
+            dialog.id = "page-2";
+            dialog.innerHTML = '<h1>Alogirthms</h1><p>There are two types of algorithms <b>weighted</b> and <b>unweighted</b></p>' +
+                '<p><b>Weigthed</b> is able to count the cost of next step, weighted cells <b>can</b> be apllied<br>' +
+                '<b>Unweighted</b> assumes each next step has cost of 1, weighted cells <b>cannot</b> be applied</p>' +
                 '<p><b>Breadth First Search</b> is unweighted, shortest path is guaranteed<br>' +
                 '<b>Bidirectional</b> is unweighted, shortest path is not guaranteed<br>' +
                 '<b>Greedy Best-First Search</b> is weighted, shortest path is not guaranteed<br>' +
                 '<b>A* Search</b> is weighted, shortest path is guaranteed</p>' +
                 '<button class="dialog-button" id="previous">PREVIOUS</button><button class="dialog-button" id="next">NEXT</button><button class="dialog-button" id="close">CLOSE</button>';
-            dialog.id = "page-2";
-            $('next').style.display = "inline";
+            break;
+
+        case 'page-4':
+            dialog.id = "page-3";
+            dialog.innerHTML = '<h1>Wall</h1>' +
+                '<p><b>Press</b> left mouse button on the grid and drag it to add walls</p>' +
+                '<img id="dialog-image" src="./public/images/wallGif.gif"/>' +
+                '<button class="dialog-button" id="previous">PREVIOUS</button><button class="dialog-button" id="next">NEXT</button><button class="dialog-button" id="close">CLOSE</button>';
+            break;
+
+        case 'page-5':
+            dialog.id = "page-4";
+            dialog.innerHTML = '<h1>Weighted Cell</h1>' +
+                '<h3>Each cell has a step cost, wheighted algorithms adjust route by step cost</h3>' +
+                "<h3>Empty cells have cost of 1 step, whereas weighted cells have cost of 10 steps</h3>" +
+                '<p><b>Right click</b> on the grid, select: "weight". <b>Press</b> left mouse button and drag it to add weights</p>' +
+                '<img id="dialog-image" src="./public/images/weightGif.gif"/>' +
+                '<button class="dialog-button" id="previous">PREVIOUS</button><button class="dialog-button" id="next">NEXT</button><button class="dialog-button" id="close">CLOSE</button>';
+            break;
+
+        case 'page-6':
+            dialog.id = "page-5";
+            dialog.innerHTML = '<h1>Slider</h1>' +
+                "<p>Move the slider to left or right side to visualize the process manually</p>" +
+                '<img style="height:max-content; width:max-content;" id="dialog-image" src="./public/images/sliderGif.gif"/>' +
+                '<button class="dialog-button" id="previous">PREVIOUS</button><button class="dialog-button" id="next">NEXT</button><button class="dialog-button" id="close">CLOSE</button>';
             break;
     }
 }
@@ -90,9 +117,9 @@ function previousDialogPage() {
 function nextDialogPage() {
     switch (dialog.id) {
         case 'page-1':
-            dialog.innerHTML = '<h1>Alogirthms</h1><p>There are two types of algorithms <b>weigthen</b> and <b>unweighted</b></p>' +
-                '<p><b>Weigthen</b> ones is able to count the cost of next step, therefore weigthen cells <b>can</b> be apllied<br>' +
-                '<b>Unweighted</b> ones assumes each next step has cost of 1, therefore weigthen cells <b>cannot</b> be applied</p>' +
+            dialog.innerHTML = '<h1>Alogirthms</h1><p>There are two types of algorithms <b>weighted</b> and <b>unweighted</b></p>' +
+                '<p><b>Weigthed</b> is able to count the cost of next step, weighted cells <b>can</b> be apllied<br>' +
+                '<b>Unweighted</b> assumes each next step has cost of 1, weighted cells <b>cannot</b> be applied</p>' +
                 '<p><b>Breadth First Search</b> is unweighted, shortest path is guaranteed<br>' +
                 '<b>Bidirectional</b> is unweighted, shortest path is not guaranteed<br>' +
                 '<b>Greedy Best-First Search</b> is weighted, shortest path is not guaranteed<br>' +
@@ -101,15 +128,44 @@ function nextDialogPage() {
             dialog.id = 'page-2';
             $('previous').style.display = "inline";
             break;
+
         case 'page-2':
             dialog.innerHTML = '<h1>Wall</h1>' +
-            '<p>Press left mouse button and drag it</p>' +
-            '<img id="dialog-image" src="./public/images/wallGif.gif"/>'+
+                '<p><b>Press</b> left mouse button on the grid and drag it to add walls</p>' +
+                '<img id="dialog-image" src="./public/images/wallGif.gif"/>' +
                 '<button class="dialog-button" id="previous">PREVIOUS</button><button class="dialog-button" id="next">NEXT</button><button class="dialog-button" id="close">CLOSE</button>';
             dialog.id = "page-3";
+            break;
+
+        case 'page-3':
+            dialog.innerHTML = '<h1>Weighted Cell</h1>' +
+                '<h3>Each cell has a step cost, wheighted algorithms adjust route by step cost</h3>' +
+                "<h3>Empty cells have cost of 1 step, whereas weighted cells have cost of 10 steps</h3>" +
+                '<p><b>Right click</b> on the grid, select: "weight". <b>Press</b> left mouse button and drag it to add weights</p>' +
+                '<img id="dialog-image" src="./public/images/weightGif.gif"/>' +
+                '<button class="dialog-button" id="previous">PREVIOUS</button><button class="dialog-button" id="next">NEXT</button><button class="dialog-button" id="close">CLOSE</button>';
+            dialog.id = "page-4";
+            break;
+
+        case 'page-4':
+            dialog.innerHTML = '<h1>Slider</h1>' +
+                "<p>Move the slider to left or right side to visualize the process manually</p>" +
+                '<img style="height:max-content; width:max-content;" id="dialog-image" src="./public/images/sliderGif.gif"/>' +
+                '<button class="dialog-button" id="previous">PREVIOUS</button><button class="dialog-button" id="next">NEXT</button><button class="dialog-button" id="close">CLOSE</button>';
+            dialog.id = "page-5";
+            break;
+
+        case 'page-5':
+            dialog.innerHTML = '<h1>Enjoy!</h1>' +
+                "<h3>Source page:</h3>" +
+                '<a href="https://github.com/ShokhrukhKhuseynov"><div id="github" ></div></a>' +
+                '<button class="dialog-button" id="previous">PREVIOUS</button><button class="dialog-button" id="next">NEXT</button><button class="dialog-button" id="close">CLOSE</button>';
+            dialog.id = "page-6"
             $('next').style.display = "none";
             break;
     }
+
+
 }
 
 
@@ -131,7 +187,7 @@ mazeSubmenu.onclick = (e) => {
             // board.wallBoard();
             // hAndK.huntAndKillMaze(column, row);
             // disbaleMenu(true, unvisitedAnimation(hAndK.unvisitedToAnimate));
-            randomBasicMaze(column, row, board.grid, wall);
+            randomBasicMaze(column, row, board.grid, wall, weightenCells);
             break;
 
         case "BT":
@@ -270,7 +326,7 @@ clearPathBtn.onclick = () => board.resetBoard(sliderType);
 
 async function disbaleMenu(mazeGenerator, func) {
 
-   
+
     const menu = document.getElementsByClassName('menu')[0];
 
     sideBar.style.pointerEvents = "none";
@@ -298,7 +354,7 @@ tableContainer.onmousedown = onMouseDown;
 tableContainer.onmouseup = onMouseUp;
 tableContainer.onclick = () => {
     board.resetBoard(sliderType);
-    onMouseClick(board.adjacencyList, board.grid, wall);
+    onMouseClick(board.adjacencyList, board.grid, wall, weightenCells);
     contextMenu.style.display = "none";
 };
 tableContainer.onmouseout = () => onMouseOut(board, sliderType);
@@ -341,8 +397,10 @@ contextMenu.onclick = () => {
         board.resetBoard(sliderType);
         if (event.target.innerText === "Wall") {
             wall = true;
-            mazeSubmenu.innerHTML = '<li id="RD">Recursion Division</li><li id="BT">Backtracking</li><li id="HK">Random Basic Maze</li>';
-            algoSubmenu.innerHTML = '<li id="BFS">Breadth First Search</li><li id="BID">Bidirectional</li><li id="GBFS">Greedy Best-First Search</li><li id="ASTAR">A* Search</li>';
+            if (!weightenCellExist()) {
+                mazeSubmenu.innerHTML = '<li id="RD">Recursion Division</li><li id="BT">Backtracking</li><li id="HK">Random Basic Maze</li>';
+                algoSubmenu.innerHTML = '<li id="BFS">Breadth First Search</li><li id="BID">Bidirectional</li><li id="GBFS">Greedy Best-First Search</li><li id="ASTAR">A* Search</li>';
+            }
         } else {
             wall = false;
             mazeSubmenu.innerHTML = '<li id="HK">Random Basic Maze</li>';
@@ -364,3 +422,15 @@ contextMenu.onclick = () => {
 };
 
 $('side-bar').onclick = () => contextMenu.style.display = "none";
+
+
+function weightenCellExist() {
+
+    for (const arr of tableContainer.children) {
+
+        for (const element of arr.children) {
+            if (element.className === "weight") return true;
+        }
+    }
+    return false;
+}

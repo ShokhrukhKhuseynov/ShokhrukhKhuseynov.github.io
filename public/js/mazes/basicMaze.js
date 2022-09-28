@@ -1,5 +1,5 @@
 import { changeToWallNode, changeToUnvisitedNode, changeToWeightNode } from "../elementsClassChanger.js";
-export function randomBasicMaze(width, height, grid, wall) {
+export function randomBasicMaze(width, height, grid, wall, weightenCells) {
 
     for (let i = 0; i < height; i++) {
         for (let j = 0; j < width; j++) {
@@ -9,6 +9,7 @@ export function randomBasicMaze(width, height, grid, wall) {
                     changeToWallNode(grid[i][j].id);
                 } else{
                     changeToWeightNode(grid[i][j].id);
+                    weightenCells.push(grid[i][j].id);
                 }
             } else {
                 changeToUnvisitedNode(grid[i][j].id);

@@ -59,35 +59,40 @@ body {
 .dialog{
     width: 800px;
     height: max-content;
-    border: black solid 1px;
     position: fixed;
     background-color: white;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    font-family: 'Poppins', sans-serif;
     padding: 5px;
     display: block;
     border-radius: 3px;
+    box-shadow: 2px 5px 10px 5px grey;
 }
 .dialog h1{
-    font-family: 'Quantico', sans-serif;
-    color: #252771;
+    font-family: 'Prompt', sans-serif;
+    color: #1f2381;
 }
 
 .dialog h3{
+    font-family: 'Montserrat', sans-serif;
     color: #212121;
 }
 
+.dialog p{
+    font-family: 'Poppins', sans-serif;
+}
+
 .dialog-button{
-    background-color: #248AFF;
+    background-color: #2072d0;
     color: white;
     cursor: pointer;
     border-style: none;
     height: 35px;
     width: 80px;
     margin-left: 10px;
+    margin-top: 30px;
     border-radius: 3px;
 }
 
@@ -101,7 +106,25 @@ body {
 
 #close{
     float: right;
-    background-color: #EB1D36;
+    background-color: rgba(205, 26, 47, 0.805);
+}
+#github{
+    width: 60px;
+    height: 60px;
+    background-image: url("../images/githubGrey.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    transition: all 0.3s;
+    border-radius: 3px;
+}
+#github:hover{
+    cursor: pointer;
+    background-image: url("../images/github.png");
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* =====================================================================TABLE======================================================================= */
