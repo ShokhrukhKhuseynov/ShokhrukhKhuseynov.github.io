@@ -12,8 +12,6 @@ import { randomBasicMaze } from './mazes/basicMaze.js';
 function $(x) { return document.getElementById(x); }
 const tableContainer = $("tableContainer");
 
-//====================================================================zero = 0 is equal to undefined!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 
 //===========================================================SETUP=================================================================================
 
