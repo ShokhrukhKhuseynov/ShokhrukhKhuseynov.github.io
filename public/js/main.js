@@ -1,8 +1,7 @@
 import { Board } from './board.js';
 import { RecursionDivision } from './mazes/recursionDivision.js';
 import { wallsAnimation, unvisitedAnimation } from './animations/mazeAnimation.js';
-import { HandK } from './mazes/H&K.js';
-import { onMouseDown, onMouseUp, onMouseClick, onMouseOut, onMouseOver, startPoint2Exist, startPointExist } from './mouseEventsHandler.js';
+import { onMouseDown, onMouseUp, onMouseClick, onMouseOut, onMouseOver} from './mouseEventsHandler.js';
 import { shortestPathBFS } from './algorithms/BFS.js';
 import { bidirectionalSearch } from './algorithms/bidirectional.js';
 import { greedyBestFirstSearch } from './algorithms/greedyBestFirst.js';
